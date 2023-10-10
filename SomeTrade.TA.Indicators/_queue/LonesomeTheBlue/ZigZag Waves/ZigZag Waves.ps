@@ -1,0 +1,112 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © LonesomeTheBlue
+
+//@version=5
+indicator("ZigZag Waves", max_bars_back = 500, max_lines_count = 300)
+prd1 = input.int(defval = 11, title="Period 1", minval = 2, maxval = 55)
+prd2 = input.int(defval = 21, title="Period 2", minval = 2, maxval = 55)
+prd3 = input.int(defval = 34, title="Period 3", minval = 2, maxval = 55)
+emalength = input.int(defval = 3, title = "EMA length", minval = 1)
+resetonnewhl = input.bool(defval = false, title = "Reset wave on new Highest/Lowest")
+showplot = input.bool(defval = true, title = "Show EMA line", inline = "ema")
+emacolor = input.color(defval = color.blue, title = "", inline = "ema")
+lwidth = input.int(defval = 2, title = "", minval = 1, maxval = 4, inline = "ema")
+
+// get highest/lowestest for each period
+phs = array.from(
+ ta.highestbars(high, prd1) == 0 ? high : na,
+ ta.highestbars(high, prd2) == 0 ? high : na,
+ ta.highestbars(high, prd3) == 0 ? high : na)
+pls = array.from(
+ ta.lowestbars(low, prd1) == 0 ? low : na,
+ ta.lowestbars(low, prd2) == 0 ? low : na,
+ ta.lowestbars(low, prd3) == 0 ? low : na)
+ 
+ // calculate zigzag direction
+var dirs = array.new_int(3, 0)
+olddirs = array.copy(dirs)
+for x = 0 to 2
+    array.set(dirs, x, (array.get(phs, x) and na(array.get(pls, x))) ? 1 : 
+             (array.get(pls, x) and na(array.get(phs, x))) ? -1 : 
+             array.get(dirs, x))
+
+var max_array_size = 6
+var zigzag1 = array.new_float(0)
+var zigzag2 = array.new_float(0)
+var zigzag3 = array.new_float(0)
+
+// add new point to zigzag
+add_to_zigzag(zigzag, value)=>
+    array.unshift(zigzag, bar_index)
+    array.unshift(zigzag, value)
+    if array.size(zigzag) > max_array_size
+        array.pop(zigzag)
+        array.pop(zigzag)
+
+// there is a move on same direction, update the zigzag level   
+update_zigzag(zigzag, dir, value)=>
+    if array.size(zigzag) == 0
+        add_to_zigzag(zigzag, value)
+    else
+        if (dir == 1 and value > array.get(zigzag, 0)) or (dir == -1 and value < array.get(zigzag, 0))
+            array.set(zigzag, 0, value)
+            array.set(zigzag, 1, bar_index)
+        0.
+
+// calculate zigzag
+CalculateZigzag(zigzag, dir, ph, pl, dirchanged)=>
+    if ph or pl
+        if dirchanged
+            add_to_zigzag(zigzag, dir == 1 ? ph : pl)
+        else
+            update_zigzag(zigzag, dir, dir == 1 ? ph : pl)
+
+// Calculate zigzags with different periods
+CalculateZigzag(zigzag1, array.get(dirs, 0), array.get(phs, 0), array.get(pls, 0), array.get(dirs, 0) != array.get(olddirs, 0))
+CalculateZigzag(zigzag2, array.get(dirs, 1), array.get(phs, 1), array.get(pls, 1), array.get(dirs, 1) != array.get(olddirs, 1))
+CalculateZigzag(zigzag3, array.get(dirs, 2), array.get(phs, 2), array.get(pls, 2), array.get(dirs, 2) != array.get(olddirs, 2))
+
+// keep total wave length
+var int [] totallength = array.from(0, 0, 0)
+var int [] totalchange = array.from(0, 0, 0)
+int [] cyclelen = array.from(0, 0, 0)
+var cycleAnddir = array.from(-1000, 1, -1000, 1, -1000, 1)
+
+for x = 0 to 2
+    float [] zigzag = x == 0 ? zigzag1 : x == 1 ? zigzag2 : zigzag3
+
+    if array.get(dirs, x) != array.get(olddirs, x) and array.size(zigzag) >= max_array_size
+        array.set(totallength, x, array.get(totallength, x) + math.round(array.get(zigzag, 3) - array.get(zigzag, 5)) + 1)
+        array.set(totalchange, x, array.get(totalchange, x) + 1)
+        
+    array.set(cyclelen, x,  math.round(array.get(totallength, x) / (array.get(totalchange, x) * 2)))
+    
+    if (resetonnewhl or array.get(cycleAnddir, x * 2) == -1000) and 
+       array.get(totalchange, x) > 10 and 
+       array.get(dirs, x) != array.get(olddirs, x)
+        array.set(cycleAnddir, x * 2, array.get(dirs, x) * math.round(bar_index - array.get(zigzag, 3)))
+        array.set(cycleAnddir, x * 2 + 1, array.get(dirs, x)) 
+    else if array.get(cycleAnddir, x * 2) > -1000
+        array.set(cycleAnddir, x * 2, array.get(cycleAnddir, x * 2) + array.get(cycleAnddir, x * 2 + 1))
+        if array.get(cycleAnddir, x * 2) < -array.get(cyclelen, x) or array.get(cycleAnddir, x * 2) > array.get(cyclelen, x)
+            array.set(cycleAnddir, x * 2 + 1, -1 * array.get(cycleAnddir, x * 2 + 1))
+            array.set(cycleAnddir, x * 2, array.get(cycleAnddir, x * 2) + 2 * array.get(cycleAnddir, x * 2 + 1))
+            if array.get(cycleAnddir, x * 2) > array.get(cyclelen, x)
+                array.set(cycleAnddir, x * 2, array.get(cyclelen, x) - 1)
+            else if array.get(cycleAnddir, x * 2) < -array.get(cyclelen, x)
+                array.set(cycleAnddir, x * 2, -array.get(cyclelen, x) + 1)
+
+float wave1 = math.sign(array.get(cycleAnddir, 0)) * math.sqrt(math.pow( array.get(cyclelen, 0), 2) - math.pow( array.get(cyclelen, 0) - math.abs(array.get(cycleAnddir, 0)), 2))
+float wave2 = math.sign(array.get(cycleAnddir, 2)) * math.sqrt(math.pow( array.get(cyclelen, 1), 2) - math.pow( array.get(cyclelen, 1) - math.abs(array.get(cycleAnddir, 2)), 2))
+float wave3 = math.sign(array.get(cycleAnddir, 4)) * math.sqrt(math.pow( array.get(cyclelen, 2), 2) - math.pow( array.get(cyclelen, 2) - math.abs(array.get(cycleAnddir, 4)), 2))
+
+wavecolor(wave, cons_)=>
+    cons = math.max(0, math.min(255, cons_))
+    wave > 0 ? (wave >= wave[1] ? color.rgb(0, cons, 0, 0) : color.rgb(0, cons - 20, 0, 0)) : (wave <= wave[1] ? color.rgb(cons, 0, 0, 0) : color.rgb(cons - 20, 0, 0, 0))
+
+plot(wave3, color = wavecolor(wave3, 190 + math.pow(wave3, 2) / 3), style = plot.style_area)
+plot(wave2, color = wavecolor(wave2, 170 + math.pow(wave2, 2) / 3), style = plot.style_area)
+plot(wave1, color = wavecolor(wave1, 150 + math.pow(wave1, 2) / 3), style = plot.style_area)
+
+waveema = ta.ema(wave1 + wave2 + wave3, emalength)
+plot(showplot ? waveema : na, color = emacolor, linewidth = lwidth)

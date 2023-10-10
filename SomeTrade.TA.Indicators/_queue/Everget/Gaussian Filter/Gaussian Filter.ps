@@ -1,0 +1,34 @@
+//@version=3
+// Copyright (c) 2018-present, Alex Orekhov (everget)
+// Gaussian Filter script may be freely distributed under the MIT license.
+study("Gaussian Filter", shorttitle="GF", overlay=true)
+
+cyclePeriod = input(title="Cycle Period", type=integer, minval=1, defval=14)
+polesNumber = input(title="Number of Poles", type=integer, defval=4, options=[1, 2, 3, 4])
+src = input(title="Source", type=source, defval=close)
+
+PI = 2 * asin(1)
+
+beta = (1 - cos(2 * PI / cyclePeriod)) / (pow(2, 1 / polesNumber) - 1)
+alpha = -beta + sqrt(pow(beta, 2) + 2 * beta)
+
+getGF(poles) =>
+	filter = 0.0
+
+	if poles == 1
+		filter := alpha * src + (1 - alpha) * nz(filter[1])
+
+	if  poles == 2
+		filter := pow(alpha, 2) * src + 2 * (1 - alpha) * nz(filter[1]) - pow(1 - alpha, 2) * nz(filter[2])
+
+	if poles == 3
+		filter := pow(alpha, 3) * src + 3 * (1 - alpha) * nz(filter[1]) - 3 * pow(1 - alpha, 2) * nz(filter[2]) + pow(1 - alpha, 3) * nz(filter[3])
+
+	if poles == 4
+		filter := pow(alpha, 4) * src + 4 * (1 - alpha) * nz(filter[1]) - 6 * pow(1 - alpha, 2) * nz(filter[2]) + 4 * pow(1 - alpha, 3) * nz(filter[3]) - pow(1 - alpha, 4) * nz(filter[4])
+
+	filter
+
+gf = getGF(polesNumber)
+
+plot(gf, title="GF", linewidth=2, color=#6d1e7f, transp=0)

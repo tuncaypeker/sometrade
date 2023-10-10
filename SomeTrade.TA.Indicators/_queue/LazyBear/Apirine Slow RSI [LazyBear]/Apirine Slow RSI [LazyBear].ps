@@ -1,0 +1,26 @@
+//
+// @author LazyBear 
+// 
+// List of my public indicators: http://bit.ly/1LQaPK8  
+// List of my app-store indicators: http://blog.tradingview.com/?p=970 
+//
+study("Apirine Slow RSI [LazyBear]", shorttitle="ASRSI_LB", overlay=false, precision=3)
+periods = input( 6, title="Smoothing", minval=1, maxval=100 ) 
+smooth =  input( 14, title="RSI Length", minval=1, maxval=100 ) 
+price = input(close, title="Source")
+calc_wima(src, length) => 
+    MA_s=(src + nz(MA_s[1] * (length-1)))/length
+    MA_s
+	
+r1 = ema( price, periods ) 
+r2 = iff( price > r1, price - r1, 0 ) 
+r3 = iff( price < r1, r1 - price, 0 ) 
+r4 = calc_wima( r2, smooth ) 
+r5 = calc_wima( r3, smooth ) 
+rr = iff( r5 == 0, 100, 100 - ( 100 / ( 1 + ( r4 / r5 ) ) ) ) 
+obl=input(70, title="OB Level")
+ovl=input(30, title="OS Level")
+obl1=hline(obl, title="OB", color=gray), osl1=hline(ovl, title="OS", color=gray)
+fill(obl1,osl1, color=gray, transp=80, title="RegionFill")
+hline(50, title="MidLine", color=gray)
+plot( rr, title="SlowRSI", color=red, linewidth=2 )

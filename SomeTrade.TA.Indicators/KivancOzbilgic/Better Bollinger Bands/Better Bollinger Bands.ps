@@ -1,0 +1,19 @@
+﻿study("Better Bollinger Bands", shorttitle="BBB", overlay=true)
+
+length = input(title="Period", type=input.integer, defval=20)
+ss= input(title="Standart Sapma Katsayısı", step=0.1, defval=2)
+highlightMovements = input(title="Highlight Movements ?", type=input.bool, defval=true)
+src = input(title="Source", type=input.source, defval=close)
+
+alpha = 2 / (length + 1)
+
+ema1 = ema(src, length)
+ema2 = ema(ema1, length)
+
+mnma = ((2 - alpha) * ema1 - ema2) / (1 - alpha)
+
+mnmaColor = highlightMovements ? mnma > mnma[1] ? color.green : color.red : #6d1e7f
+plot(mnma, title="MNMA", linewidth=2, color=mnmaColor, transp=0)
+k1=plot(mnma + ss * stdev(src, length))
+k2=plot(mnma - ss * stdev(src, length))
+fill(k1,k2,color=color.navy,transp=95)

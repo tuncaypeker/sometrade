@@ -1,0 +1,2 @@
+﻿İndikatör ü ekledigimizde 5 tane tarih seçtiriyor ve bu tarih aralıgında var mı diye kontrol ediyor sanırım.
+X: A: B: C: D: olmak üzere 5 tarih bilgisi alıyor

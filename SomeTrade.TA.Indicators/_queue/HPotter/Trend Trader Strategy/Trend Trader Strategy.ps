@@ -1,0 +1,26 @@
+//@version=4
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 21/01/2021
+// This is plots the indicator developed by Andrew Abraham 
+// in the Trading the Trend article of TASC September 1998  
+//
+// WARNING:
+// - For purpose educate only
+// - This script to change bars colors.
+////////////////////////////////////////////////////////////
+study(title="Trend Trader Strategy", overlay = true)
+Length = input(21, minval=1),
+Multiplier = input(3, minval=0.000001)
+avgTR      = wma(atr(1), Length)
+highestC   = highest(Length)
+lowestC    = lowest(Length)
+hiLimit = highestC[1]-(avgTR[1] * Multiplier)
+loLimit = lowestC[1]+(avgTR[1] * Multiplier)
+ret = 0.0
+pos = 0.0
+ret:= iff(close > hiLimit and close > loLimit, hiLimit,
+       iff(close < loLimit and close < hiLimit, loLimit, nz(ret[1], close)))
+pos:= iff(close > ret, 1,
+	   iff(close < ret, -1, nz(pos[1], 0))) 
+barcolor(pos == -1 ? color.red: pos == 1 ? color.green : color.blue )
+plot(ret, color= color.blue , title="Trend Trader Strategy")

@@ -1,0 +1,117 @@
+//
+// @author LazyBear 
+// 
+// List of my public indicators: http://bit.ly/1LQaPK8 
+// List of my app-store indicators: http://blog.tradingview.com/?p=970 
+//
+study("Ehlers Smoothed Adaptive Momentum [LazyBear]", shorttitle="ESAM_LB", overlay=false, precision=3)
+src=input(hl2, title="Source") 
+a=input(.07, title="Alpha")
+co=input(8.0, title="Cutoff")
+pi=4*atan(1.0), dtr=pi/180.0, rtd=1/dtr
+s = (src + 2*src[1] + 2*src[2] + src[3])/6.0
+c = nz(((1 - 0.5*a)*(1 - 0.5*a)*(s - 2*nz(s[1]) + nz(s[2])) + 2*(1-a)*nz(c[1]) - (1 - a)*(1-a)*nz(c[2])), (src - 2*src[1] + src[2])/4.0)
+q1 = (.0962*c + 0.5769*nz(c[2]) - 0.5769*nz(c[4]) - .0962*nz(c[6]))*(0.5+.08*nz(ip[1]))
+I1 = nz(c[3])
+dp_ = iff(q1 != 0 and q1[1] != 0, (I1/q1 - nz(I1[1])/nz(q1[1])) / (1 + I1*nz(I1[1])/(q1*nz(q1[1]))),0)
+dp = iff(dp_ < 0.1, 0.1, iff(dp_ > 1.1, 1.1, dp_))
+med(x,y,z) => (x+y+z) - min(x,min(y,z)) - max(x,max(y,z))
+md = med(dp,dp[1], med(dp[2], dp[3], dp[4]))
+//dc = iff(md == 0, 15, 6.28318 / md + 0.5)
+dc = iff(md == 0, 15, 2*pi / md + 0.5)
+ip = .33*dc + .67*nz(ip[1])
+p = .15*ip + .85*nz(p[1])
+pr=round(abs(p-1))
+vx0=0
+vx1=pr==1?(src - src[1]):vx0
+vx2=pr==2?(src - src[2]):vx1
+vx3=pr==3?(src - src[3]):vx2
+vx4=pr==4?(src - src[4]):vx3
+vx5=pr==5?(src - src[5]):vx4
+vx6=pr==6?(src - src[6]):vx5
+vx7=pr==7?(src - src[7]):vx6
+vx8=pr==8?(src - src[8]):vx7
+vx9=pr==9?(src - src[9]):vx8
+vx10=pr==10?(src - src[10]):vx9
+vx11=pr==11?(src - src[11]):vx10
+vx12=pr==12?(src - src[12]):vx11
+vx13=pr==13?(src - src[13]):vx12
+vx14=pr==14?(src - src[14]):vx13
+vx15=pr==15?(src - src[15]):vx14
+vx16=pr==16?(src - src[16]):vx15
+vx17=pr==17?(src - src[17]):vx16
+vx18=pr==18?(src - src[18]):vx17
+vx19=pr==19?(src - src[19]):vx18
+vx20=pr==20?(src - src[20]):vx19
+vx21=pr==21?(src - src[21]):vx20
+vx22=pr==22?(src - src[22]):vx21
+vx23=pr==23?(src - src[23]):vx22
+vx24=pr==24?(src - src[24]):vx23
+vx25=pr==25?(src - src[25]):vx24
+vx26=pr==26?(src - src[26]):vx25
+vx27=pr==27?(src - src[27]):vx26
+vx28=pr==28?(src - src[28]):vx27
+vx29=pr==29?(src - src[29]):vx28
+vx30=pr==30?(src - src[30]):vx29
+vx31=pr==31?(src - src[31]):vx30
+vx32=pr==32?(src - src[32]):vx31
+vx33=pr==33?(src - src[33]):vx32
+vx34=pr==34?(src - src[34]):vx33
+vx35=pr==35?(src - src[35]):vx34
+vx36=pr==36?(src - src[36]):vx35
+vx37=pr==37?(src - src[37]):vx36
+vx38=pr==38?(src - src[38]):vx37
+vx39=pr==39?(src - src[39]):vx38
+vx40=pr==40?(src - src[40]):vx39
+vx41=pr==41?(src - src[41]):vx40
+vx42=pr==42?(src - src[42]):vx41
+vx43=pr==43?(src - src[43]):vx42
+vx44=pr==44?(src - src[44]):vx43
+vx45=pr==45?(src - src[45]):vx44
+vx46=pr==46?(src - src[46]):vx45
+vx47=pr==47?(src - src[47]):vx46
+vx48=pr==48?(src - src[48]):vx47
+vx49=pr==49?(src - src[49]):vx48
+vx50=pr==50?(src - src[50]):vx49
+vx51=pr==51?(src - src[51]):vx50
+vx52=pr==52?(src - src[52]):vx51
+vx53=pr==53?(src - src[53]):vx52
+vx54=pr==54?(src - src[54]):vx53
+vx55=pr==55?(src - src[55]):vx54
+vx56=pr==56?(src - src[56]):vx55
+vx57=pr==57?(src - src[57]):vx56
+vx58=pr==58?(src - src[58]):vx57
+vx59=pr==59?(src - src[59]):vx58
+vx60=pr==60?(src - src[60]):vx59
+vx61=pr==61?(src - src[61]):vx60
+vx62=pr==62?(src - src[62]):vx61
+vx63=pr==63?(src - src[63]):vx62
+vx64=pr==64?(src - src[64]):vx63
+vx65=pr==65?(src - src[65]):vx64
+vx66=pr==66?(src - src[66]):vx65
+vx67=pr==67?(src - src[67]):vx66
+vx68=pr==68?(src - src[68]):vx67
+vx69=pr==69?(src - src[69]):vx68
+vx70=pr==70?(src - src[70]):vx69
+vx71=pr==71?(src - src[71]):vx70
+vx72=pr==72?(src - src[72]):vx71
+vx73=pr==73?(src - src[73]):vx72
+vx74=pr==74?(src - src[74]):vx73
+vx75=pr==75?(src - src[75]):vx74
+v1=vx75
+a1=exp(-pi/co)
+b1=2.0*a1*cos((1.738*180/co)*dtr)
+c1=a1*a1
+coef2=b1+c1
+coef3= -(c1+b1*c1)
+coef4=c1*c1
+coef1=1-coef2-coef3-coef4
+f3=nz(coef1*v1+coef2*nz(f3[1])+coef3*nz(f3[2])+coef4*nz(f3[3]), v1)
+ml=plot(0, color=gray, title="ZeroLine")
+pl=plot(f3>0?f3:0,title="DummyP",color=gray, linewidth=0, style=circles) 
+nl=plot(f3<0?f3:0,title="DummyN",color=gray, linewidth=0, style=circles) 
+plot(f3, title="Ehlers SAMI", color=black, linewidth=2)
+fill(pl, ml, green, title="PositiveFill", transp=70), fill(nl, ml, red, title="NegativeFill", transp=70)
+ebc=input(false, title="Enable bar colors")
+bc=ebc?(f3>0?f3>nz(f3[1])?lime:green:f3<f3[1]?red:orange):na
+barcolor(bc)

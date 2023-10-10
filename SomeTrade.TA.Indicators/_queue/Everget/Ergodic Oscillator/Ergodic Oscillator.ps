@@ -1,0 +1,69 @@
+//@version=3
+// Copyright (c) 2018-present, Alex Orekhov (everget)
+// Ergodic Oscillator script may be freely distributed under the MIT license.
+study("Ergodic Oscillator", shorttitle="EOSC")
+
+smooth1Length = input(title="1st Smoothing Length", type=integer, minval=1, defval=8)
+smooth2Length = input(title="2nd Smoothing Length", type=integer, minval=1, defval=5)
+signalLength = input(title="Signal Length", type=integer, minval=1, defval=5)
+ergodicLength = input(title="Ergodic Length", type=integer, minval=1, defval=5)
+ergodicSignalLength = input(title="Ergodic Signal Length", type=integer, minval=1, defval=14)
+obLevel = input(title="Overbought Level", type=integer, defval=20)
+osLevel = input(title="Oversold Level", type=integer, defval=-20)
+maxLevel = input(title="Max Level", type=integer, defval=75)
+minLevel = input(title="Min Level", type=integer, defval=-75)
+src = input(title="Source", type=source, defval=close)
+showHistogram = input(title="Show Histogram ?", type=bool, defval=false)
+highlightBreakouts = input(title="Highlight Overbought/Oversold Breakouts ?", type=bool, defval=false)
+highlightCrossovers = input(title="Highlight Ergodic/Signal Crossovers ?", type=bool, defval=true)
+highlightZeroCrossovers = input(title="Highlight Zero Line Crossovers ?", type=bool, defval=false)
+applyFilling = input(title="Apply Ribbon Filling ?", type=bool, defval=false)
+
+momentum = change(src)
+
+ema1 = ema(momentum, smooth1Length)
+ema1Abs = ema(abs(momentum), smooth1Length)
+
+ema2 = ema(ema1, smooth2Length)
+ema2Abs = ema(abs(ema1Abs), smooth2Length)
+
+tsi = 100 * ema2 / ema2Abs
+tsiSignal = ema(tsi, signalLength)
+
+ergodic = ema(tsiSignal, ergodicLength)
+signal = ema(ergodic, ergodicSignalLength)
+
+hist = ergodic - signal
+histColor = hist >= 0 ? (hist[1] < hist ? #26A69A : #B2DFDB) : (hist[1] < hist ? #FFCDD2 : #EF5350)
+plot(showHistogram ? hist : na, title="Histogram", style=columns, color=histColor, transp=0)
+
+trendColor = ergodic > signal ? #0ebb23 : red
+ergodicColor = applyFilling ? trendColor : #ff3e7d
+signalColor = applyFilling ? trendColor : #3c78d8
+
+ergodicPlot = plot(ergodic, title="Ergodic", color=ergodicColor, transp=0)
+signalPlot = plot(signal, title="Signal", color=signalColor, transp=0)
+
+transparent = color(white, 100)
+
+maxLevelPlot = hline(maxLevel, title="Max Level", linestyle=dotted, color=transparent)
+obLevelPlot = hline(obLevel, title="Overbought Level", linestyle=dotted, color=#0ebb23)
+hline(0, title="Zero Level", linestyle=dotted, color=#989898)
+osLevelPlot = hline(osLevel, title="Oversold Level", linestyle=dotted, color=#ff9370)
+minLevelPlot = hline(minLevel, title="Min Level", linestyle=dotted, color=transparent)
+fill(obLevelPlot, osLevelPlot, color=purple, transp=95)
+
+obFillColor = ergodic > obLevel and highlightBreakouts ? green : transparent
+osFillColor = ergodic < osLevel and highlightBreakouts ? red : transparent
+
+fill(maxLevelPlot, obLevelPlot, color=obFillColor, transp=85)
+fill(minLevelPlot, osLevelPlot, color=osFillColor, transp=85)
+
+fillColor = applyFilling ? trendColor : transparent
+fill(ergodicPlot, signalPlot, color=fillColor, transp=70)
+
+zeroCrossBgColor = highlightZeroCrossovers ? (ergodic > 0 ? green : red) : transparent
+bgcolor(zeroCrossBgColor, transp=90)
+
+plotshape(highlightCrossovers and crossover(ergodic, signal) ? ergodic : na, title="Crossover", location=location.absolute, style=shape.circle, size=size.tiny, color=green, transp=0)
+plotshape(highlightCrossovers and crossunder(ergodic, signal) ? ergodic : na, title="Crossunder", location=location.absolute, style=shape.circle, size=size.tiny, color=red, transp=0)

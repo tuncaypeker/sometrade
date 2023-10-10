@@ -1,0 +1,135 @@
+//
+// @author LazyBear 
+// 
+// List of my public indicators: http://bit.ly/1LQaPK8 
+// List of my app-store indicators: http://blog.tradingview.com/?p=970 
+//
+study("Ehlers Adaptive CG Indicator [LazyBear]", shorttitle="EACGI_LB", overlay=false, precision=3)
+src=input(hl2, title="Source") 
+a=input(.07, title="Alpha")
+s = (src + 2*src[1] + 2*src[2] + src[3])/6.0
+c = n<7?(src - 2*src[1] + src[2])/4.0:((1 - 0.5*a)*(1 - 0.5*a)*(s - 2*s[1] + s[2]) + 2*(1-a)*c[1] - (1 - a)*(1-a)*c[2])
+q1 = (.0962*c + 0.5769*c[2] - 0.5769*c[4] - .0962*c[6])*(0.5+.08*nz(ip[1]))
+I1 = c[3]
+dp_ = iff(q1 != 0 and q1[1] != 0, (I1/q1 - I1[1]/q1[1]) / (1 + I1*I1[1]/(q1*q1[1])),0)
+dp = iff(dp_ < 0.1, 0.1, iff(dp_ > 1.1, 1.1, dp_))
+med(x,y,z) => (x+y+z) - min(x,min(y,z)) - max(x,max(y,z))
+md = med(dp,dp[1], med(dp[2], dp[3], dp[4]))
+dc = iff(md == 0, 15, 6.28318 / md + 0.5)
+ip = .33*dc + .67*nz(ip[1])
+p = .15*ip + .85*nz(p[1])
+intp=round(p/2.0)
+nm0=0, dm0=0
+nm1=1<=intp ? (nm0+(1 + 0) * src[0]) : nm0, dm1=1<=intp ? dm0+src[0] : dm0
+nm2=2<=intp ? (nm1+(1 + 1) * src[1]) : nm1, dm2=2<=intp ? dm1+src[1] : dm1
+nm3=3<=intp ? (nm2+(1 + 2) * src[2]) : nm2, dm3=3<=intp ? dm2+src[2] : dm2
+nm4=4<=intp ? (nm3+(1 + 3) * src[3]) : nm3, dm4=4<=intp ? dm3+src[3] : dm3
+nm5=5<=intp ? (nm4+(1 + 4) * src[4]) : nm4, dm5=5<=intp ? dm4+src[4] : dm4
+nm6=6<=intp ? (nm5+(1 + 5) * src[5]) : nm5, dm6=6<=intp ? dm5+src[5] : dm5
+nm7=7<=intp ? (nm6+(1 + 6) * src[6]) : nm6, dm7=7<=intp ? dm6+src[6] : dm6
+nm8=8<=intp ? (nm7+(1 + 7) * src[7]) : nm7, dm8=8<=intp ? dm7+src[7] : dm7
+nm9=9<=intp ? (nm8+(1 + 8) * src[8]) : nm8, dm9=9<=intp ? dm8+src[8] : dm8
+nm10=10<=intp ? (nm9+(1 + 9) * src[9]) : nm9, dm10=10<=intp ? dm9+src[9] : dm9
+nm11=11<=intp ? (nm10+(1 + 10) * src[10]) : nm10, dm11=11<=intp ? dm10+src[10] : dm10
+nm12=12<=intp ? (nm11+(1 + 11) * src[11]) : nm11, dm12=12<=intp ? dm11+src[11] : dm11
+nm13=13<=intp ? (nm12+(1 + 12) * src[12]) : nm12, dm13=13<=intp ? dm12+src[12] : dm12
+nm14=14<=intp ? (nm13+(1 + 13) * src[13]) : nm13, dm14=14<=intp ? dm13+src[13] : dm13
+nm15=15<=intp ? (nm14+(1 + 14) * src[14]) : nm14, dm15=15<=intp ? dm14+src[14] : dm14
+nm16=16<=intp ? (nm15+(1 + 15) * src[15]) : nm15, dm16=16<=intp ? dm15+src[15] : dm15
+nm17=17<=intp ? (nm16+(1 + 16) * src[16]) : nm16, dm17=17<=intp ? dm16+src[16] : dm16
+nm18=18<=intp ? (nm17+(1 + 17) * src[17]) : nm17, dm18=18<=intp ? dm17+src[17] : dm17
+nm19=19<=intp ? (nm18+(1 + 18) * src[18]) : nm18, dm19=19<=intp ? dm18+src[18] : dm18
+nm20=20<=intp ? (nm19+(1 + 19) * src[19]) : nm19, dm20=20<=intp ? dm19+src[19] : dm19
+nm21=21<=intp ? (nm20+(1 + 20) * src[20]) : nm20, dm21=21<=intp ? dm20+src[20] : dm20
+nm22=22<=intp ? (nm21+(1 + 21) * src[21]) : nm21, dm22=22<=intp ? dm21+src[21] : dm21
+nm23=23<=intp ? (nm22+(1 + 22) * src[22]) : nm22, dm23=23<=intp ? dm22+src[22] : dm22
+nm24=24<=intp ? (nm23+(1 + 23) * src[23]) : nm23, dm24=24<=intp ? dm23+src[23] : dm23
+nm25=25<=intp ? (nm24+(1 + 24) * src[24]) : nm24, dm25=25<=intp ? dm24+src[24] : dm24
+nm26=26<=intp ? (nm25+(1 + 25) * src[25]) : nm25, dm26=26<=intp ? dm25+src[25] : dm25
+nm27=27<=intp ? (nm26+(1 + 26) * src[26]) : nm26, dm27=27<=intp ? dm26+src[26] : dm26
+nm28=28<=intp ? (nm27+(1 + 27) * src[27]) : nm27, dm28=28<=intp ? dm27+src[27] : dm27
+nm29=29<=intp ? (nm28+(1 + 28) * src[28]) : nm28, dm29=29<=intp ? dm28+src[28] : dm28
+nm30=30<=intp ? (nm29+(1 + 29) * src[29]) : nm29, dm30=30<=intp ? dm29+src[29] : dm29
+nm31=31<=intp ? (nm30+(1 + 30) * src[30]) : nm30, dm31=31<=intp ? dm30+src[30] : dm30
+nm32=32<=intp ? (nm31+(1 + 31) * src[31]) : nm31, dm32=32<=intp ? dm31+src[31] : dm31
+nm33=33<=intp ? (nm32+(1 + 32) * src[32]) : nm32, dm33=33<=intp ? dm32+src[32] : dm32
+nm34=34<=intp ? (nm33+(1 + 33) * src[33]) : nm33, dm34=34<=intp ? dm33+src[33] : dm33
+nm35=35<=intp ? (nm34+(1 + 34) * src[34]) : nm34, dm35=35<=intp ? dm34+src[34] : dm34
+nm36=36<=intp ? (nm35+(1 + 35) * src[35]) : nm35, dm36=36<=intp ? dm35+src[35] : dm35
+nm37=37<=intp ? (nm36+(1 + 36) * src[36]) : nm36, dm37=37<=intp ? dm36+src[36] : dm36
+nm38=38<=intp ? (nm37+(1 + 37) * src[37]) : nm37, dm38=38<=intp ? dm37+src[37] : dm37
+nm39=39<=intp ? (nm38+(1 + 38) * src[38]) : nm38, dm39=39<=intp ? dm38+src[38] : dm38
+nm40=40<=intp ? (nm39+(1 + 39) * src[39]) : nm39, dm40=40<=intp ? dm39+src[39] : dm39
+nm41=41<=intp ? (nm40+(1 + 40) * src[40]) : nm40, dm41=41<=intp ? dm40+src[40] : dm40
+nm42=42<=intp ? (nm41+(1 + 41) * src[41]) : nm41, dm42=42<=intp ? dm41+src[41] : dm41
+nm43=43<=intp ? (nm42+(1 + 42) * src[42]) : nm42, dm43=43<=intp ? dm42+src[42] : dm42
+nm44=44<=intp ? (nm43+(1 + 43) * src[43]) : nm43, dm44=44<=intp ? dm43+src[43] : dm43
+nm45=45<=intp ? (nm44+(1 + 44) * src[44]) : nm44, dm45=45<=intp ? dm44+src[44] : dm44
+nm46=46<=intp ? (nm45+(1 + 45) * src[45]) : nm45, dm46=46<=intp ? dm45+src[45] : dm45
+nm47=47<=intp ? (nm46+(1 + 46) * src[46]) : nm46, dm47=47<=intp ? dm46+src[46] : dm46
+nm48=48<=intp ? (nm47+(1 + 47) * src[47]) : nm47, dm48=48<=intp ? dm47+src[47] : dm47
+nm49=49<=intp ? (nm48+(1 + 48) * src[48]) : nm48, dm49=49<=intp ? dm48+src[48] : dm48
+nm50=50<=intp ? (nm49+(1 + 49) * src[49]) : nm49, dm50=50<=intp ? dm49+src[49] : dm49
+nm51=51<=intp ? (nm50+(1 + 50) * src[50]) : nm50, dm51=51<=intp ? dm50+src[50] : dm50
+nm52=52<=intp ? (nm51+(1 + 51) * src[51]) : nm51, dm52=52<=intp ? dm51+src[51] : dm51
+nm53=53<=intp ? (nm52+(1 + 52) * src[52]) : nm52, dm53=53<=intp ? dm52+src[52] : dm52
+nm54=54<=intp ? (nm53+(1 + 53) * src[53]) : nm53, dm54=54<=intp ? dm53+src[53] : dm53
+nm55=55<=intp ? (nm54+(1 + 54) * src[54]) : nm54, dm55=55<=intp ? dm54+src[54] : dm54
+nm56=56<=intp ? (nm55+(1 + 55) * src[55]) : nm55, dm56=56<=intp ? dm55+src[55] : dm55
+nm57=57<=intp ? (nm56+(1 + 56) * src[56]) : nm56, dm57=57<=intp ? dm56+src[56] : dm56
+nm58=58<=intp ? (nm57+(1 + 57) * src[57]) : nm57, dm58=58<=intp ? dm57+src[57] : dm57
+nm59=59<=intp ? (nm58+(1 + 58) * src[58]) : nm58, dm59=59<=intp ? dm58+src[58] : dm58
+nm60=60<=intp ? (nm59+(1 + 59) * src[59]) : nm59, dm60=60<=intp ? dm59+src[59] : dm59
+nm61=61<=intp ? (nm60+(1 + 60) * src[60]) : nm60, dm61=61<=intp ? dm60+src[60] : dm60
+nm62=62<=intp ? (nm61+(1 + 61) * src[61]) : nm61, dm62=62<=intp ? dm61+src[61] : dm61
+nm63=63<=intp ? (nm62+(1 + 62) * src[62]) : nm62, dm63=63<=intp ? dm62+src[62] : dm62
+nm64=64<=intp ? (nm63+(1 + 63) * src[63]) : nm63, dm64=64<=intp ? dm63+src[63] : dm63
+nm65=65<=intp ? (nm64+(1 + 64) * src[64]) : nm64, dm65=65<=intp ? dm64+src[64] : dm64
+nm66=66<=intp ? (nm65+(1 + 65) * src[65]) : nm65, dm66=66<=intp ? dm65+src[65] : dm65
+nm67=67<=intp ? (nm66+(1 + 66) * src[66]) : nm66, dm67=67<=intp ? dm66+src[66] : dm66
+nm68=68<=intp ? (nm67+(1 + 67) * src[67]) : nm67, dm68=68<=intp ? dm67+src[67] : dm67
+nm69=69<=intp ? (nm68+(1 + 68) * src[68]) : nm68, dm69=69<=intp ? dm68+src[68] : dm68
+nm70=70<=intp ? (nm69+(1 + 69) * src[69]) : nm69, dm70=70<=intp ? dm69+src[69] : dm69
+nm71=71<=intp ? (nm70+(1 + 70) * src[70]) : nm70, dm71=71<=intp ? dm70+src[70] : dm70
+nm72=72<=intp ? (nm71+(1 + 71) * src[71]) : nm71, dm72=72<=intp ? dm71+src[71] : dm71
+nm73=73<=intp ? (nm72+(1 + 72) * src[72]) : nm72, dm73=73<=intp ? dm72+src[72] : dm72
+nm74=74<=intp ? (nm73+(1 + 73) * src[73]) : nm73, dm74=74<=intp ? dm73+src[73] : dm73
+nm75=75<=intp ? (nm74+(1 + 74) * src[74]) : nm74, dm75=75<=intp ? dm74+src[74] : dm74
+nm76=76<=intp ? (nm75+(1 + 75) * src[75]) : nm75, dm76=76<=intp ? dm75+src[75] : dm75
+nm77=77<=intp ? (nm76+(1 + 76) * src[76]) : nm76, dm77=77<=intp ? dm76+src[76] : dm76
+nm78=78<=intp ? (nm77+(1 + 77) * src[77]) : nm77, dm78=78<=intp ? dm77+src[77] : dm77
+nm79=79<=intp ? (nm78+(1 + 78) * src[78]) : nm78, dm79=79<=intp ? dm78+src[78] : dm78
+nm80=80<=intp ? (nm79+(1 + 79) * src[79]) : nm79, dm80=80<=intp ? dm79+src[79] : dm79
+nm81=81<=intp ? (nm80+(1 + 80) * src[80]) : nm80, dm81=81<=intp ? dm80+src[80] : dm80
+nm82=82<=intp ? (nm81+(1 + 81) * src[81]) : nm81, dm82=82<=intp ? dm81+src[81] : dm81
+nm83=83<=intp ? (nm82+(1 + 82) * src[82]) : nm82, dm83=83<=intp ? dm82+src[82] : dm82
+nm84=84<=intp ? (nm83+(1 + 83) * src[83]) : nm83, dm84=84<=intp ? dm83+src[83] : dm83
+nm85=85<=intp ? (nm84+(1 + 84) * src[84]) : nm84, dm85=85<=intp ? dm84+src[84] : dm84
+nm86=86<=intp ? (nm85+(1 + 85) * src[85]) : nm85, dm86=86<=intp ? dm85+src[85] : dm85
+nm87=87<=intp ? (nm86+(1 + 86) * src[86]) : nm86, dm87=87<=intp ? dm86+src[86] : dm86
+nm88=88<=intp ? (nm87+(1 + 87) * src[87]) : nm87, dm88=88<=intp ? dm87+src[87] : dm87
+nm89=89<=intp ? (nm88+(1 + 88) * src[88]) : nm88, dm89=89<=intp ? dm88+src[88] : dm88
+nm90=90<=intp ? (nm89+(1 + 89) * src[89]) : nm89, dm90=90<=intp ? dm89+src[89] : dm89
+nm91=91<=intp ? (nm90+(1 + 90) * src[90]) : nm90, dm91=91<=intp ? dm90+src[90] : dm90
+nm92=92<=intp ? (nm91+(1 + 91) * src[91]) : nm91, dm92=92<=intp ? dm91+src[91] : dm91
+nm93=93<=intp ? (nm92+(1 + 92) * src[92]) : nm92, dm93=93<=intp ? dm92+src[92] : dm92
+nm94=94<=intp ? (nm93+(1 + 93) * src[93]) : nm93, dm94=94<=intp ? dm93+src[93] : dm93
+nm95=95<=intp ? (nm94+(1 + 94) * src[94]) : nm94, dm95=95<=intp ? dm94+src[94] : dm94
+nm96=96<=intp ? (nm95+(1 + 95) * src[95]) : nm95, dm96=96<=intp ? dm95+src[95] : dm95
+nm97=97<=intp ? (nm96+(1 + 96) * src[96]) : nm96, dm97=97<=intp ? dm96+src[96] : dm96
+nm98=98<=intp ? (nm97+(1 + 97) * src[97]) : nm97, dm98=98<=intp ? dm97+src[97] : dm97
+nm99=99<=intp ? (nm98+(1 + 98) * src[98]) : nm98, dm99=99<=intp ? dm98+src[98] : dm98
+nm100=100<=intp ? (nm99+(1 + 99) * src[99]) : nm99, dm100=100<=intp ? dm99+src[99] : dm99
+nm=nm100, dm=dm100
+cg = iff(dm != 0, -nm/dm + (intp + 1) / 2.0, 0)
+t=cg[1]
+fr=input(true, title="Fill Osc/Trigger region")
+plot(0, color=gray, title="ZeroLine")
+duml=plot(fr?(cg>t?cg:t):na, style=circles, linewidth=0, color=gray, title="Dummy")
+cmil=plot(cg, title="AdaptiveCG",color=blue)
+tl=plot(t, title="Trigger",color=green)
+fill(cmil, duml, color=red, transp=50, title="NegativeFill")
+fill(tl, duml, color=lime, transp=50, title="PositiveFill")
+ebc=input(false, title="Color bars?")
+bc=ebc?(cg>0? (cg>t?lime:(cg==t?gray:green)): (cg<t?red:orange)):na
+barcolor(bc)

@@ -1,0 +1,47 @@
+﻿// This work is licensed under a Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) https://creativecommons.org/licenses/by-nc-sa/4.0/
+// © alexgrover
+
+//Original post : Alpaca.markets/learn/andean-oscillator-a-new-technical-indicator-based-on-an-online-algorithm-for-trend-analysis/
+
+//@version=5
+indicator("Andean Oscillator")
+//------------------------------------------------------------------------------
+//Settings
+//-----------------------------------------------------------------------------{
+length     = input(50)
+
+sig_length = input(9,'Signal Length')
+
+//-----------------------------------------------------------------------------}
+//Exponential Envelopes
+//-----------------------------------------------------------------------------{
+var alpha = 2/(length+1)
+
+var up1 = 0.,var up2 = 0.
+var dn1 = 0.,var dn2 = 0.
+
+C = close
+O = open
+
+up1 := nz(math.max(C, O, up1[1] - (up1[1] - C) * alpha), C)
+up2 := nz(math.max(C * C, O * O, up2[1] - (up2[1] - C * C) * alpha), C * C)
+
+dn1 := nz(math.min(C, O, dn1[1] + (C - dn1[1]) * alpha), C)
+dn2 := nz(math.min(C * C, O * O, dn2[1] + (C * C - dn2[1]) * alpha), C * C)
+
+//Components
+bull = math.sqrt(dn2 - dn1 * dn1)
+bear = math.sqrt(up2 - up1 * up1)
+
+signal = ta.ema(math.max(bull, bear), sig_length)
+
+//-----------------------------------------------------------------------------}
+//Plots
+//-----------------------------------------------------------------------------{
+plot(bull, 'Bullish Component', #089981)
+
+plot(bear, 'Bearish Component', #f23645)
+
+plot(signal, 'Signal', #ff9800)
+
+//-----------------------------------------------------------------------------}

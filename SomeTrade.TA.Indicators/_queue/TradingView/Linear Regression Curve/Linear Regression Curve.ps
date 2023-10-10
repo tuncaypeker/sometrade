@@ -1,0 +1,7 @@
+//@version=5
+indicator(title="Linear Regression Curve", shorttitle="LRC", overlay=true, timeframe="", timeframe_gaps=true)
+src = close
+len = input.int(defval=9, minval=1, title="Length")
+offset = 0
+out = ta.linreg(src, len, offset)
+plot(out)

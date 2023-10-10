@@ -1,0 +1,38 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 24/04/2014
+// This indicator plots Dynamic Momentum Index indicator. The Dynamic Momentum 
+// Index (DMI) was developed by Tushar Chande and Stanley Kroll. The indicator 
+// is covered in detail in their book The New Technical Trader.
+// The DMI is identical to Welles Wilder`s Relative Strength Index except the 
+// number of periods is variable rather than fixed. The variability of the time 
+// periods used in the DMI is controlled by the recent volatility of prices. 
+// The more volatile the prices, the more sensitive the DMI is to price changes. 
+// In other words, the DMI will use more time periods during quiet markets, and 
+// less during active markets. The maximum time periods the DMI can reach is 30 
+// and the minimum is 3. This calculation method is similar to the Variable 
+// Moving Average, also developed by Tushar Chande.
+// The advantage of using a variable length time period when calculating the RSI 
+// is that it overcomes the negative effects of smoothing, which often obscure short-term moves.
+// The volatility index used in controlling the time periods in the DMI is based 
+// on a calculation using a five period standard deviation and a ten period average 
+// of the standard deviation.
+////////////////////////////////////////////////////////////
+study(title = "Dynamic Momentum Index (DMI) ")
+RSILen = input(14, minval=1)
+BuyZone = input(30, minval=1)
+SellZone = input(70, minval=1)
+UpLimit = input(30, minval=1)
+LoLimit = input(5, minval=1)
+bbz = hline(0, color=gray, linestyle=dashed)
+bz = hline(BuyZone, color=green, linestyle=line)
+sz = hline(SellZone, color=red, linestyle=line)
+ssz = hline(100, color=gray, linestyle=line)
+xStdDev = stdev(close, 5) 
+xSMAStdDev = sma(xStdDev, 10)
+DTime = round(14 / xSMAStdDev - 0.5)
+xDMI = iff(DTime > UpLimit, UpLimit,
+            iff(DTime < LoLimit, LoLimit, DTime))
+xRSI = rsi(xDMI, RSILen)
+pl = plot(xRSI, style=line, linewidth=1, color=blue)
+fill(bz, bbz, color=green)
+fill(sz, ssz, color=red)

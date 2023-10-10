@@ -1,0 +1,16 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 10/06/2014
+// The Market Facilitation Index is an indicator that relates price range to 
+// volume and measures the efficency of price movement. Use the indicator to 
+// determine if the market is trending. If the Market Facilitation Index increased, 
+// then the market is facilitating trade and is more efficient, implying that the 
+// market is trending. If the Market Facilitation Index decreased, then the market 
+// is becoming less efficient, which may indicate a trading range is developing that 
+// may be a trend reversal.
+////////////////////////////////////////////////////////////
+study(title="Market Facilitation Index (MFI)", shorttitle="MFI")
+xmyVol = volume
+xmyhigh = high
+xmylow = low
+nRes = (xmyhigh - xmylow) / xmyVol * 10000
+plot(nRes, color=green, title="MFI", style = histogram)

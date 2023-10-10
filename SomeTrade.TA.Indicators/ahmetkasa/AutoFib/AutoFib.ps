@@ -1,0 +1,28 @@
+//https://twitter.com/ahmetkasa_
+//@version=4
+
+study(title="FibFib(Ahmet Kasa)", shorttitle="AutoFib", overlay=true)
+fiblength=input(265)
+maxr = highest(close, fiblength)
+minr = lowest(close, fiblength)
+ranr = maxr - minr
+
+ON=plot( maxr , color=#000000,  title="1")
+SS=plot( maxr - 0.236 * ranr, title="0.764", color=#3399FF )
+SO=plot( maxr - 0.382 * ranr, title="0.618", color=#3399FF )
+FI=plot( maxr - 0.50 * ranr, title="0.5", color=#FFFB05)
+TE=plot( minr + 0.382 * ranr, title="0.382", color=color.rgb(5, 255, 176) )
+TT=plot( minr + 0.236 * ranr, title="0.236", color=#FF0505)
+ZZ=plot( minr , title="0", color=#000000 )
+
+fill(ON,SS, color=#FF0506)
+fill(SS,SO, color=#3399FF)
+fill(SO,FI, color=#FFFB05)
+fill(FI,TE, color=#FFFB05)
+fill(TE,TT, color=#3399FF)
+fill(TT,ZZ, color=#FFFFFF)
+
+len = input(9, minval=1, title="Length")
+src = input(close, title="Source")
+out = ema(src, len)
+plot(out, title="EMA", color=#003EFF  )

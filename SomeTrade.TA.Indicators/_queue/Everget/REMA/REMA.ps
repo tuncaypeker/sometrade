@@ -1,0 +1,17 @@
+//@version=3
+// Copyright (c) 2018-present, Alex Orekhov (everget)
+// Regularized Exponential Moving Average script may be freely distributed under the MIT license.
+study("Regularized Exponential Moving Average", shorttitle="REMA", overlay=true)
+
+length = input(title="Length", type=integer, defval=14)
+lambda = input(title="Regularization Constant", type=float, minval=0, defval=0.5)
+highlightMovements = input(title="Highlight Movements ?", type=bool, defval=true)
+src = input(title="Source", type=source, defval=close)
+
+alpha = 2 / (length + 1)
+
+rema = 0.0
+rema := (nz(rema[1]) + alpha * (src - nz(rema[1])) + lambda * (2 * nz(rema[1]) - nz(rema[2]))) / (lambda + 1)
+
+remaColor = highlightMovements ? (rema > rema[1] ? green : red) : #6d1e7f
+plot(rema, title="REMA", linewidth=2, color=remaColor, transp=0)

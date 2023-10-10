@@ -1,0 +1,4 @@
+﻿// same on pine, but less efficient
+pine_vwma(x, y) =>
+    ta.sma(x * volume, y) / ta.sma(volume, y)
+plot(pine_vwma(close, 15))

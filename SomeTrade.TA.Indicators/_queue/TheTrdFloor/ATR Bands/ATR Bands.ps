@@ -1,0 +1,39 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © TheTrdFloor
+//
+// In many strategies, it's quite common to use a scaled ATR to help define a stop-loss, and it's not uncommon to use it for take-profit targets
+// as well.  While there are quite a few indicators that plot ATR bands already on TV, we could not find one that actually performed the exact 
+// way that we wanted.  They all had at least one of the following gaps:
+//   * The ATR offset was not configurable (usually hard-coded to be based off the high or low, while we generally prefer to use close)
+//   * It would only print a single band (either the upper or lower), which would require the same indicator to be added twice
+//   * The ATR scaling factor was either not configurable or only stepped in whole numbers (often time fractional factors like 1.5 yield better results)
+//
+// Also, when looking at some of the behaviors of the ATR bands, you can see that when price first levels out, you can draw a "consolidation zone" from
+// the first peak of the upper ATR band to the first valley of the lower ATR band and look for price to break and close outside of that zone.  When that
+// happens, price will usually make a notable move in that direction.
+//
+// While we have made some updates and enhancements to this indicator, and have every intention of continuing to do so as we find worthy opportunities
+// for enhancement, credit is still due to the origianl author:  AlexanderTeaH
+//
+//@version=5
+indicator('ATR Bands', overlay=true, timeframe="", timeframe_gaps=false)
+
+// Inputs
+atrPeriod = input.int(title='ATR Period', defval=3, minval=1, group="ATR Bands Global Settings", tooltip="This setting is used in the raw ATR value calculation.  Most often this is set at either 14 (default) or 21.")
+
+atrMultiplierUpper = input.float(title='ATR Upper Band Scale Factor', defval=2.5, step=0.1, minval=0.01, group="ATR Upper Band Settings", tooltip="Scaling factor (aka multiplier) for the ATR to use for plotting the ATR bands.  " +
+                     "This will usually be between 1 and 3.")
+srcUpper = input.source(title='ATR Upper Offset Source', defval=close, group="ATR Upper Band Settings", tooltip="This setting determines the offset point for ATR bands.  " +
+                     "For this band, 'high' and 'close' (default) are generally the most appropriate values.")
+
+atrMultiplierLower = input.float(title='ATR Lower Band Scale Factor', defval=2.5, step=0.1, minval=0.01, group="ATR Lower Band Settings", tooltip="Scaling factor (aka multiplier) for the ATR to use for plotting the ATR bands.  " +
+                     "This will usually be between 1 and 3.")
+srcLower = input.source(title='ATR Lower Offset Source', defval=close, group="ATR Lower Band Settings", tooltip="This setting determines the offset point for ATR bands.  " +
+                     "For this band, 'low' and 'close' (default) are generally the most appropriate values.")
+
+// ATR
+atr = ta.atr(atrPeriod)
+
+// Plotting
+plot(srcUpper + atr * atrMultiplierUpper, title="Upper ATR Band", color=color.rgb(0, 255, 0, 50), linewidth=2)
+plot(srcLower - atr * atrMultiplierLower, title="Lower ATR Band", color=color.rgb(255, 0, 0, 50), linewidth=2)

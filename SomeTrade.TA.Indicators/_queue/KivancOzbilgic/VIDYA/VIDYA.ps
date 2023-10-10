@@ -1,0 +1,28 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © KivancOzbilgic
+
+//@version=4
+study("VIDYA", overlay=true)
+src = input(close, title="Source")
+pds = input(9,"Length")
+fixCMO = input(title="Fixed CMO Length (9)?", type=input.bool, defval=true)
+select = input(title="Calculation Method: CMO/StDev?", type=input.bool, defval=true)
+alpha = 2/(pds+1)
+momm = change(src)
+f1(m) => m >= 0.0 ? m : 0.0
+f2(m) => m >= 0.0 ? 0.0 : -m
+m1 = f1(momm)
+m2 = f2(momm)
+sm1 = fixCMO ? sum(m1, 9) : sum(m1, pds)
+sm2 = fixCMO ? sum(m2, 9) : sum(m2, pds)
+percent(nom, div) => 100 * nom / div
+chandeMO = nz(percent(sm1-sm2, sm1+sm2))
+k= select ? abs(chandeMO)/100 : stdev(src,pds)
+VIDYA=0.0
+VIDYA:= nz(alpha*k*src)+(1-alpha*k)*nz(VIDYA[1])
+col12 = VIDYA > VIDYA[1]
+col32 = VIDYA < VIDYA[1]
+color2 = col12 ? #001AE1 : col32 ? color.maroon : color.blue
+plot(VIDYA,"VAR",color2,2)
+
+alertcondition(cross(VIDYA,VIDYA[1]), title="Color ALARM!", message="VIDYA has changed color!")

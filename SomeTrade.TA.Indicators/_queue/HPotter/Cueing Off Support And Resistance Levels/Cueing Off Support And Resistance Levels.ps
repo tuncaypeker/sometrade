@@ -1,0 +1,11 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 25/08/2014
+// Cueing Off Support And Resistance Levels, by Thom Hartle 
+// The related article is copyrighted material from Stocks & Commodities.
+////////////////////////////////////////////////////////////
+study(title="Cueing Off Support And Resistance Levels, by Thom Hartle", overlay = true)
+width = input(2, minval=1)
+xHigh = security(tickerid,"W", high[1])
+xLow  = security(tickerid,"W", low[1])
+plot(xLow, color=green, title="S", style = circles, linewidth = width)
+plot(xHigh, color=red, title="R", style = circles, linewidth = width)

@@ -1,0 +1,34 @@
+//
+// @author LazyBear 
+// List of all my indicators: 
+// https://docs.google.com/document/d/15AGCufJZ8CIUvwFJ9W-IKns88gkWOKBCvByMEvm5MLo/edit?usp=sharing
+//
+study("Universal Oscillator [LazyBear]", shorttitle="UNIOSC_LB")
+bandedge= input(20, title="BandEdge")
+showHisto=input(true, type=bool, title="Show Histogram?")
+showMA=input(false, type=bool, title="Show Signal?")
+lengthMA=input(9, title="EMA signal length")
+enableBarColors=input(false, title="Color Bars?")
+
+whitenoise= (close - close[2])/2
+a1= exp(-1.414 * 3.14159 / bandedge)
+b1= 2.0*a1 * cos(1.414*180 /bandedge)
+c2= b1
+c3= -a1 * a1
+c1= 1 - c2 - c3
+filt= c1 * (whitenoise + nz(whitenoise[1]))/2 + c2*nz(filt[1]) + c3*nz(filt[2])
+filt1= iff(cum(1) == 0, 0, iff(cum(1) == 2, c2*nz(filt1[1]),
+	iff(cum(1) == 3, c2*nz(filt1[1]) + c3*nz(filt1[2]), filt)))
+
+pk= iff(cum(1) == 2, .0000001,
+	iff(abs(filt1) > nz(pk[1]), abs(filt1), 0.991 * nz(pk[1])))
+denom= iff(pk==0, -1, pk)
+euo=iff(denom == -1, nz(euo[1]), filt1/pk)
+euoMA=ema(euo, lengthMA)
+hline(0)
+plot(showHisto ?euo:na, style=histogram, color=euo>0?green:red, title="Histogram")
+plot(euo, color=maroon, linewidth=2, title="EUO")
+plot(showMA?euoMA:na, color=teal, title="Signal", linewidth=1)
+barcolor(enableBarColors?euo>0?green:red:na)
+//Use this if signal cross should be used for barcoloring. 
+//barcolor(enableBarColors?(euo>euoMA ? green : red):na)

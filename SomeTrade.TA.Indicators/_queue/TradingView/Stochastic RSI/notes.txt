@@ -1,0 +1,4 @@
+﻿20-80 aralıgını gösterir
+
+20 nin altında yukarı yonlu kesişim BUY 3/14 ün kesişimi
+80 nin üstünde aşağı yönlü kesişim SELL sinyalidir 3/14 ün kesişimi

@@ -1,0 +1,56 @@
+﻿// This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License https://creativecommons.org/licenses/by-sa/4.0/
+// © alexgrover
+
+//@version=4
+study("Optimized Linear Regression Channel",overlay=true)
+min  = input(14,minval=4)
+max  = input(28)
+mult = input(2)
+src  = input(close)
+//------------------------------------------------------------------------------
+cmla = cum(src)
+cmlb = cum(cmla[1])
+cmlc = cum(src*src)
+//------------------------------------------------------------------------------
+r(p)=>
+    sum = cmlb - cmlb[p]
+    a = (p*cmla-sum)
+    b = cmla - cmla[p]
+    c = cmlc - cmlc[p]
+    //----
+    num = (a - b*(p+1)/2)/p
+    vary = c/p - pow(b/p,2)
+    varx = (p*p - 1)/12
+    pow(num/sqrt(vary*varx),2)
+//------------------------------------------------------------------------------
+k = 0.,p = 0
+for i = min to max
+    c = r(i)
+    k := max(c,k)
+    p := k == c ? i : p
+//------------------------------------------------------------------------------
+den = p*(p+1)/2
+wma = (p*cmla-(cmlb - cmlb[p]))/den
+sma = (cmla - cmla[p])/p
+A = 4*sma-3*wma, B= 3*wma-2*sma
+//------------------------------------------------------------------------------
+Var = (cmlc - cmlc[p])/p - pow((cmla - cmla[p])/p,2)
+rmse = sqrt(Var - r(p)*Var)*mult
+//----
+n = bar_index
+var line ln = na
+var line up = na
+var line dn = na,
+var label la = na
+transparent = color.new(color.white, 100)
+if n > min
+    ln := line.new(n[p]+1,A,n,B,extend=extend.right,
+      color=#ff9800,width=2)
+    up := line.new(n[p]+1,A+rmse,n,B+rmse,extend=extend.right,
+      color=#2157f3,width=2)
+    dn := line.new(n[p]+1,A-rmse,n,B-rmse,extend=extend.right,
+      color=#2157f3,width=2)
+    la := label.new(n[p]+1,A-rmse,tostring(p),color=transparent,
+      style=label.style_label_up,textcolor=#2157f3)
+line.delete(ln[1]),line.delete(up[1]),line.delete(dn[1])
+label.delete(la[1])

@@ -1,0 +1,33 @@
+//
+// @author LazyBear 
+// 
+// List of my public indicators: http://bit.ly/1LQaPK8 
+// List of my app-store indicators: http://blog.tradingview.com/?p=970 
+//
+study("Ehlers Adaptive Cyber Cycle Indicator [LazyBear]", shorttitle="EACCI_LB", overlay=false, precision=3)
+src=input(hl2, title="Source") 
+a=input(.07, title="Alpha")
+s = (src + 2*src[1] + 2*src[2] + src[3])/6.0
+c = n<7?(src - 2*src[1] + src[2])/4.0:((1 - 0.5*a)*(1 - 0.5*a)*(s - 2*s[1] + s[2]) + 2*(1-a)*c[1] - (1 - a)*(1-a)*c[2])
+q1 = (.0962*c + 0.5769*c[2] - 0.5769*c[4] - .0962*c[6])*(0.5+.08*nz(ip[1]))
+I1 = c[3]
+dp_ = iff(q1 != 0 and q1[1] != 0, (I1/q1 - I1[1]/q1[1]) / (1 + I1*I1[1]/(q1*q1[1])),0)
+dp = iff(dp_ < 0.1, 0.1, iff(dp_ > 1.1, 1.1, dp_))
+med(x,y,z) => (x+y+z) - min(x,min(y,z)) - max(x,max(y,z))
+md = med(dp,dp[1], med(dp[2], dp[3], dp[4]))
+dc = iff(md == 0, 15, 6.28318 / md + 0.5)
+ip = .33*dc + .67*nz(ip[1])
+p = .15*ip + .85*nz(p[1])
+a1 = 2.0/(p + 1)
+ac=nz(((1-0.5*a1)*(1-0.5*a)*(s-2*s[1]+s[2])+2*(1-a1)*ac[1]-(1-a1)*(1-a1)*ac[2]), (src-2*src[1]+src[2])/4.0)
+t=ac[1]
+fr=input(true, title="Fill Osc/Trigger region")
+plot(0, color=gray, title="ZeroLine")
+duml=plot(fr?(ac>t?ac:t):na, style=circles, linewidth=0, color=gray, title="Dummy")
+cmil=plot(ac, title="AdaptiveCyberCycle",color=blue)
+tl=plot(t, title="Trigger",color=green)
+fill(cmil, duml, color=red, transp=50, title="NegativeFill")
+fill(tl, duml, color=lime, transp=50, title="PositiveFill")
+ebc=input(false, title="Color bars?")
+bc=ebc?(ac>0? (ac>t?lime:(ac==t?gray:green)): (ac<t?red:orange)):na
+barcolor(bc)
