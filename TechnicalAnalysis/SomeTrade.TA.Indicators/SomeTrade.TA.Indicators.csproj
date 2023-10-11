@@ -7,8 +7,4 @@
   <ItemGroup>
     <PackageReference Include="CuttingEdge.Conditions" Version="1.2.0" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SomeTrade.TA\SomeTrade.TA.csproj" />
-  </ItemGroup>
 </Project>

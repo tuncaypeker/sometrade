@@ -8,8 +8,4 @@
     <Folder Include="_queue\EmreKb\Quasimodo Pattern by EmreKb\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SomeTrade.TA\SomeTrade.TA.csproj" />
-  </ItemGroup>
-
 </Project>
