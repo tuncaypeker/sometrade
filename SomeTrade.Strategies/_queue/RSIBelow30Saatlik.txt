@@ -1,0 +1,5 @@
+﻿Saatlik mum'da RSI 30 altına indiğinde bu iş için ayrılan bütçe 3 ya da 5 e bölünerek alım yapılmaya başlanır
+
+1- Bu noktada bir destek direnç olması ekstra teyit olarak kullanılabilir
+2- Gün içinde düşüş miktarının yarısı kadar tepki beklenir
+3- RSI Düşüş devam ederse ayrılan bütçeden 1-1 alım yapılmaya devam edilir

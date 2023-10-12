@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "SomeTrade.Infrastructure.Interfaces": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:60729;http://localhost:60730"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+﻿1- Frama ahma kesişim: 
+2- Hilo Kama kesişim:
+3- Hma Renk değiştirme:
+4- LaguerRsı ve LagF Uyum Stratejisi:
+5- Mavilim Fiyat Ustune Çıkarsa AL Yuzde 5 Sat SadeceAl
+6- Tilson Renk Degistirme
+7- TRIMA Cross Price Screening
+8- VmaRenkDegistirme: Renginin değişmesi yeşil al, kırmızı sat
+    60dakika
+    StandartSapma ile bak 14 ten büyükse al-sat STDEV
+    Alırken bir de onbekinin en yuksegini gecsin, oncekinin en dusugunu gecsin parametresi de ekliyor
+
+9- WMACrossSMAStrategy
+0- ZerolOg EllesWider Kesişim: 25 zero 16 welles wilder olaiblirparmetre
