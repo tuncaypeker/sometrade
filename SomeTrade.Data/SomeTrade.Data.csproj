@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.21" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Logging\SomeTrade.Infrastructure.Logging.DummyLog\SomeTrade.Infrastructure.Logging.DummyLog.csproj" />
+    <ProjectReference Include="..\Infrastructure\SomeTrade.Infrastructure.Interfaces\SomeTrade.Infrastructure.Interfaces.csproj" />
+    <ProjectReference Include="..\SomeTrade.Model\SomeTrade.Model.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

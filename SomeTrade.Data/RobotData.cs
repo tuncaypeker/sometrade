@@ -1,0 +1,15 @@
+﻿namespace SomeTrade.Data
+{
+    using Microsoft.Extensions.DependencyInjection;
+    using SomeTrade.Data.Infrastructure;
+    using SomeTrade.Infrastructure.Interfaces;
+
+    public class RobotData : EntityBaseData<Model.Robot>
+    {
+        private readonly IServiceScopeFactory _serviceScopeFactory;
+
+        public RobotData(ILogger<object> logger, IServiceScopeFactory serviceScopeFactory) : base(logger, serviceScopeFactory) { 
+            _serviceScopeFactory = serviceScopeFactory;
+        }
+    }
+}
