@@ -1,0 +1,1 @@
+﻿Basinda _ olan indicatorler'in csharp versiyonu yoktur

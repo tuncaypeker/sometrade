@@ -1,0 +1,98 @@
+//@version=4
+// Copyright (c) 2018-present, Alex Orekhov (everget)
+// Ehlers MESA Adaptive Moving Averages (MAMA & FAMA)script may be freely distributed under the terms of the GPL-3.0 license.
+study("Ehlers MESA Adaptive Moving Averages (MAMA & FAMA)", shorttitle="MAMA & FAMA", overlay=true)
+
+fastLimit = input(title="Fast Limit", type=input.float, step=0.01, defval=0.5)
+slowLimit = input(title="Slow Limit", type=input.float, step=0.01, defval=0.05)
+applyFilling = input(title="Apply Ribbon Filling ?", type=input.bool, defval=true)
+src = input(title="Source", type=input.source, defval=hl2)
+
+var float PI = 2 * asin(1)
+
+// Truncated Hilbert transform
+_hilbertTransform(src) =>
+    out= 0.0962 * src + 0.5769 * nz(src[2]) - 0.5769 * nz(src[4]) - 0.0962 * nz(src[6])
+    out
+
+_computeComponent(src, mesaPeriodMult) =>
+    out = _hilbertTransform(src) * mesaPeriodMult
+    out
+
+_smoothComponent(src) =>
+    out = 0.2 * src + 0.8 * nz(src[1])
+    out
+
+_computeAlpha(src, fastLimit, slowLimit) =>
+    mesaPeriod = 0.0
+    mesaPeriodMult = 0.075 * nz(mesaPeriod[1]) + 0.54
+
+    smooth = (4 * src + 3 * nz(src[1]) + 2 * nz(src[2]) + nz(src[3])) / 10
+    detrender = _computeComponent(smooth, mesaPeriodMult)
+
+    // Compute InPhase and Quadrature components
+    I1 = nz(detrender[3])
+    Q1 = _computeComponent(detrender, mesaPeriodMult)
+
+    // Advance the phase of I1 and Q1 by 90 degrees
+    jI = _computeComponent(I1, mesaPeriodMult)
+    jQ = _computeComponent(Q1, mesaPeriodMult)
+
+    // Phasor addition for 3 bar averaging
+    I2 = I1 - jQ
+    Q2 = Q1 + jI
+
+    // Smooth the I and Q components before applying the discriminator
+    I2 := _smoothComponent(I2)
+    Q2 := _smoothComponent(Q2)
+
+    // Homodyne Discriminator
+    Re = I2 * nz(I2[1], I2) + Q2 * nz(Q2[1], Q2)
+    Im = I2 * nz(Q2[1], Q2) - Q2 * nz(I2[1], I2)
+
+    Re := _smoothComponent(Re)
+    Im := _smoothComponent(Im)
+
+    if Re != 0 and Im != 0
+        mesaPeriod := 2 * PI / atan(Im / Re)
+
+    mesaPeriod := min(mesaPeriod, 1.5 * nz(mesaPeriod[1], mesaPeriod))
+    mesaPeriod := max(mesaPeriod, 0.67 * nz(mesaPeriod[1], mesaPeriod))
+	mesaPeriod := min(max(mesaPeriod, 6), 50)
+	mesaPeriod := _smoothComponent(mesaPeriod)
+
+    phase = 0.0
+
+    if I1 != 0
+        phase := (180 / PI) * atan(Q1 / I1)
+
+    deltaPhase = nz(phase[1], phase) - phase
+    deltaPhase := max(deltaPhase, 1)
+
+    alpha = max(fastLimit / deltaPhase, slowLimit)
+
+    out = alpha
+    out
+
+alpha = _computeAlpha(src, fastLimit, slowLimit)
+alpha2 = alpha / 2
+
+mama = 0.0
+mama := alpha * src + (1 - alpha) * nz(mama[1])
+
+fama = 0.0
+fama := alpha2 * mama + (1 - alpha2) * nz(fama[1])
+
+mamaPlot = plot(mama, title="MAMA", linewidth=2, color=#674ea7, transp=0)
+famaPlot = plot(fama, title="FAMA", linewidth=2, color=#f6b26b, transp=0)
+
+noneColor = color.new(color.white, 100) 
+
+fillColor = applyFilling ? (mama > fama ? #0ebb23 : #cc0000) : noneColor
+fill(mamaPlot, famaPlot, color=fillColor, transp=80)
+
+long = crossover(mama, fama)
+short = crossunder(mama, fama)
+
+alertcondition(long, title="Alert: Long", message="MAMA & FAMA Long!")
+alertcondition(short, title="Alert: Short", message="MAMA & FAMA Short!")

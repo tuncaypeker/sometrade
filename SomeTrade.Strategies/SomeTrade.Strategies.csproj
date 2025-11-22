@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions\**" />
+    <EmbeddedResource Remove="Extensions\**" />
+    <None Remove="Extensions\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Caching\SomeTrade.Infrastructure.Caching.DummyCache\SomeTrade.Infrastructure.Caching.DummyCache.csproj" />
+    <ProjectReference Include="..\Infrastructure\Logging\SomeTrade.Infrastructure.Logging.DummyLog\SomeTrade.Infrastructure.Logging.DummyLog.csproj" />
+    <ProjectReference Include="..\Infrastructure\SomeTrade.Infrastructure.Extensions\SomeTrade.Infrastructure.Extensions.csproj" />
+    <ProjectReference Include="..\Infrastructure\SomeTrade.Infrastructure.Interfaces\SomeTrade.Infrastructure.Interfaces.csproj" />
+    <ProjectReference Include="..\SomeTrade.Data\SomeTrade.Data.csproj" />
+    <ProjectReference Include="..\SomeTrade.Model\SomeTrade.Model.csproj" />
+    <ProjectReference Include="..\SomeTrade.Socket\SomeTrade.Socket.csproj" />
+    <ProjectReference Include="..\TechnicalAnalysis\SomeTrade.TA.Indicators\SomeTrade.TA.Indicators.csproj" />
+    <ProjectReference Include="..\TechnicalAnalysis\SomeTrade.TA\SomeTrade.TA.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="_sample_data\1INCHUSDT_1M_Binance_Sample.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="_sample_data\ARPAUSDT_1M_Binance_Sample.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

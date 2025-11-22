@@ -1,0 +1,26 @@
+//@version=3
+// Copyright (c) 2018-present, Alex Orekhov (everget)
+// Adaptive Moving Average script may be freely distributed under the MIT license.
+study("Adaptive Moving Average", shorttitle="AMA", overlay=true)
+
+length = input(title="Length", type=integer, defval=14)
+fastLength = input(title="Fast EMA Length", type=integer, defval=2)
+slowLength = input(title="Slow EMA Length", type=integer, defval=30)
+highlightMovements = input(title="Highlight Movements ?", type=bool, defval=true)
+src = input(title="Source", type=source, defval=close)
+
+fastAlpha = 2 / (fastLength + 1)
+slowAlpha = 2 / (slowLength + 1)
+
+hh = highest(length + 1)
+ll = lowest(length + 1)
+
+mltp = hh - ll != 0 ? abs(2 * src - ll - hh) / (hh - ll) : 0
+
+ssc = mltp * (fastAlpha - slowAlpha) + slowAlpha
+
+ama = 0.0
+ama := nz(ama[1]) + pow(ssc, 2) * (src - nz(ama[1]))
+
+amaColor = highlightMovements ? (ama > ama[1] ? green : red) : #6d1e7f
+plot(ama, title="AMA", linewidth=2, color=amaColor, transp=0)

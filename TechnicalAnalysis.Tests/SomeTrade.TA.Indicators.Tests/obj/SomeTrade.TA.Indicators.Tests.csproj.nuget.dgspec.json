@@ -1,0 +1,699 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Indicators.Tests\\SomeTrade.TA.Indicators.Tests.csproj": {}
+  },
+  "projects": {
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\Logging\\SomeTrade.Infrastructure.Logging.DummyLog\\SomeTrade.Infrastructure.Logging.DummyLog.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\Logging\\SomeTrade.Infrastructure.Logging.DummyLog\\SomeTrade.Infrastructure.Logging.DummyLog.csproj",
+        "projectName": "SomeTrade.Infrastructure.Logging.DummyLog",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\Logging\\SomeTrade.Infrastructure.Logging.DummyLog\\SomeTrade.Infrastructure.Logging.DummyLog.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\Logging\\SomeTrade.Infrastructure.Logging.DummyLog\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Interfaces\\SomeTrade.Infrastructure.Interfaces.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Interfaces\\SomeTrade.Infrastructure.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj",
+        "projectName": "SomeTrade.Infrastructure.Extensions",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.34, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Interfaces\\SomeTrade.Infrastructure.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Interfaces\\SomeTrade.Infrastructure.Interfaces.csproj",
+        "projectName": "SomeTrade.Infrastructure.Interfaces",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Interfaces\\SomeTrade.Infrastructure.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Data\\SomeTrade.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Data\\SomeTrade.Data.csproj",
+        "projectName": "SomeTrade.Data",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Data\\SomeTrade.Data.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\Logging\\SomeTrade.Infrastructure.Logging.DummyLog\\SomeTrade.Infrastructure.Logging.DummyLog.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\Logging\\SomeTrade.Infrastructure.Logging.DummyLog\\SomeTrade.Infrastructure.Logging.DummyLog.csproj"
+              },
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Interfaces\\SomeTrade.Infrastructure.Interfaces.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Interfaces\\SomeTrade.Infrastructure.Interfaces.csproj"
+              },
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Model\\SomeTrade.Model.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Model\\SomeTrade.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Model\\SomeTrade.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Model\\SomeTrade.Model.csproj",
+        "projectName": "SomeTrade.Model",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Model\\SomeTrade.Model.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Indicators.Tests\\SomeTrade.TA.Indicators.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Indicators.Tests\\SomeTrade.TA.Indicators.Tests.csproj",
+        "projectName": "SomeTrade.TA.Indicators.Tests",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Indicators.Tests\\SomeTrade.TA.Indicators.Tests.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Indicators.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj"
+              },
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Data\\SomeTrade.Data.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Data\\SomeTrade.Data.csproj"
+              },
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Model\\SomeTrade.Model.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\SomeTrade.Model\\SomeTrade.Model.csproj"
+              },
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj"
+              },
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\SomeTrade.TA.Indicators.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\SomeTrade.TA.Indicators.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.9.4, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj",
+        "projectName": "SomeTrade.TA.Tests.Utilities",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Binance.Net": {
+              "target": "Package",
+              "version": "[8.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\SomeTrade.TA.Indicators.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\SomeTrade.TA.Indicators.csproj",
+        "projectName": "SomeTrade.TA.Indicators",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\SomeTrade.TA.Indicators.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA\\SomeTrade.TA.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA\\SomeTrade.TA.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "CuttingEdge.Conditions": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA\\SomeTrade.TA.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA\\SomeTrade.TA.csproj",
+        "projectName": "SomeTrade.TA",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA\\SomeTrade.TA.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "CuttingEdge.Conditions": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "OxyPlot.Core": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "OxyPlot.ImageSharp": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

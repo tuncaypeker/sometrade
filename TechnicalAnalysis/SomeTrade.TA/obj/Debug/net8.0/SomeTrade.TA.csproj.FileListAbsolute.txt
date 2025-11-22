@@ -1,0 +1,39 @@
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.deps.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.csproj.AssemblyReference.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.AssemblyInfoInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.AssemblyInfo.cs
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.csproj.CoreCompileInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.sourcelink.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\refint\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\ref\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.deps.json
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.csproj.AssemblyReference.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.AssemblyInfoInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.AssemblyInfo.cs
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.csproj.CoreCompileInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.sourcelink.json
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\refint\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\Webilim.Dashboard\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\ref\SomeTrade.TA.dll
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.deps.json
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.dll
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\bin\Debug\net8.0\SomeTrade.TA.pdb
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.csproj.AssemblyReference.cache
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.GeneratedMSBuildEditorConfig.editorconfig
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.AssemblyInfoInputs.cache
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.AssemblyInfo.cs
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.csproj.CoreCompileInputs.cache
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.sourcelink.json
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.dll
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\refint\SomeTrade.TA.dll
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\SomeTrade.TA.pdb
+E:\Workarea\_SomeTrade\Workarea\SomeTrade\TechnicalAnalysis\SomeTrade.TA\obj\Debug\net8.0\ref\SomeTrade.TA.dll

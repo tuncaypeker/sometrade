@@ -1,0 +1,25 @@
+//
+// @author LazyBear 
+// 
+// List of my public indicators: http://bit.ly/1LQaPK8 
+// List of my app-store indicators: http://blog.tradingview.com/?p=970 
+//
+study("Adaptive Ergodic Candlestick Oscillator [LazyBear]", shorttitle="AECO_LB")
+length=input(defval=14, title="Stoch Scaling Length"), sl=input(defval=9, title="Signal Length")
+ep=input(defval=5, title="Smooth Length")
+vrb= abs( stoch(close, high, low, length)-50)/50
+mep=2/(ep+1), ce=cum(1)<=((length+ep)*2)
+came1=iff(ce,close-open,nz(came1[1])+mep*vrb*((close-open)-nz(came1[1])))
+came2=iff(ce,high-low,nz(came2[1])+mep*vrb*((high-low)-nz(came2[1])))
+came11=iff(ce,came1,nz(came11[1])+mep*vrb*(came1-nz(came11[1])))
+came22=iff(ce,came2,nz(came22[1])+mep*vrb*(came2-nz(came22[1])))
+eco=came11/came22*100.0
+se=ema(eco, sl)
+ebc=input(false, title="Enable Bar colors")
+bc_=eco>0 ? (eco>eco[1]?green:orange) : (eco<eco[1]?red:orange)
+bc_t=eco>0 ? (eco>se?lime:orange) : (eco<se?red:orange)
+bc=ebc? bc_t : na
+barcolor(bc)
+plot(0, title="MidLine")
+plot(eco, style=histogram, color=bc_,linewidth=2, title="ECOHisto_1")
+plot(eco, color=black, linewidth=2, title="AECO")

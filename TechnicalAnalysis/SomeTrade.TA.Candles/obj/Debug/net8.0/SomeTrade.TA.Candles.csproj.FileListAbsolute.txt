@@ -1,0 +1,12 @@
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\bin\Debug\net8.0\SomeTrade.TA.Candles.deps.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\bin\Debug\net8.0\SomeTrade.TA.Candles.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\bin\Debug\net8.0\SomeTrade.TA.Candles.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\SomeTrade.TA.Candles.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\SomeTrade.TA.Candles.AssemblyInfoInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\SomeTrade.TA.Candles.AssemblyInfo.cs
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\SomeTrade.TA.Candles.csproj.CoreCompileInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\SomeTrade.TA.Candles.sourcelink.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\SomeTrade.TA.Candles.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\refint\SomeTrade.TA.Candles.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\SomeTrade.TA.Candles.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Candles\obj\Debug\net8.0\ref\SomeTrade.TA.Candles.dll

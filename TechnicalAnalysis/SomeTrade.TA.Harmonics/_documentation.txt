@@ -1,0 +1,53 @@
+﻿Kaynak1: 
+https://forexboat.com/forex-harmonic-patterns/
+https://forexboat.com/wp-content/uploads/2020/05/Harmonic-Patterns-Cheatsheet.png
+
+Kaynank2:
+https://lh7-rt.googleusercontent.com/docsz/AD_4nXfazMh7-JPqlHtx9O_5ldkVYF_BRtGuKG1juCNYT29T8AySZdaMynjSJ01TzDntkor8uZRS3FWrJKLff93-A7GOqb1wtp6wXTEO3IhxAFkVkYCe1H6CgeEzShC7EaXKrm2tazRFuut1iL-5pdlngfqedTWp?key=LC7sFo0vCUbCK1MkjlQ99Q
+
+AB dönüşü
+	Crab   : B noktası XA hareletinin 0.382 - 0.618 arasında olmalıdır
+	Butter : B noktası XA hareketinin 0.786
+	Bat	   : B noktası XA hareketinin 0.382 - 0.500 arasında olmalıdır
+	Gartley: B noktası XA hareketinin 0.618
+	Cypher : B noktası XA hareletinin 0.382 - 0.618 arasında olmalıdır
+
+C noktası
+	Crab   : C noktası AB hareketinin 0.382 - 0.886 arasında olmalıdır
+	Butter : C noktası AB hareketinin 0.382 - 0.886 arasında olmalıdır
+	Bat    : C noktası AB hareketinin 0.382 - 0.886 arasında olmalıdır
+	Gartley: C noktası AB hareketinin 0.382 - 0.886 arasında olmalıdır [Gökhan bunu en az 618e degsin istiyor]
+	Cypher : C noktası AB hareketinin 1.272 - 1.414 arasında olmalıdır
+	
+D noktası
+	Crab   : D noktasi XA hareketinin 1.618
+			 D noktası AB hareketinin 2.224 - 3.618 arasında olmalıdır
+	Butter : D noktasi XA hareketinin 1.127 - 1.618 arasında olmalıdır
+			 D noktası AB hareketinin 1.618 - 2.618 arasında olmalıdır
+	Bat    : D noktası XA hareketinin 0.886
+			 D noktası AB hareketinin 1.618 - 2.618 arasında olmalıdır
+	Gartley: D noktası XA hareketinin 0.786
+			 D noktası AB hareketinin 1.127 - 1.618 arasında olmalıdır
+	Cypher : D noktası XA hareketinin 0.786
+
+Kaynak 3:
+https://www.youtube.com/watch?v=6PZhO45WIPI&ab_channel=TeknikAnalizDersleri
+B noktasının kırılması ile artık potansiyel harmonic aramaya başlayabiliriz,
+Bu yuzden geçmiş taramalarda da aslında B kırılmadıgı surece Dyi aramayabiliriz.
+
+B noktası formasyonun tc kimlik numarasıdır
+	618 düzeltmesi yapmışsa Gartley
+	500 düzetlmesi yapmışsa Bat
+C noktası asla A noktasının altına üstüne wick atamaz
+
+Tahmini Fiyat Hedefi
+	AD ye cekilen fibonun 382, 500, 618 fibo seviyeleri hedeflenebilir
+
+Kaynak 4:
+https://www.youtube.com/watch?v=jjqviPyE408&list=PL6mewOlAI10QSio-XSO7NLNFpGjWTAz4d&index=3&ab_channel=TradeKul%C3%BCb%C3%BC
+	Gartley B noktası fitille de olsa 618e degmek zorundadır
+		    B noktası fililet de olsa 768e degemez
+
+	Gartley C noktası AB fibonun 618e fitil dahi olsa degmek zorunda
+	Hacimli geliyorsa onay bekliyorum
+	Hacimsiz geliyorsa RSI aşırı noktadaysa, geçmişte o bölgede saygı duyulan bir alandaysa

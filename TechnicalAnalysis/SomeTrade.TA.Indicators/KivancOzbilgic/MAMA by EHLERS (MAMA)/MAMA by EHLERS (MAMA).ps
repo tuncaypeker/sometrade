@@ -1,0 +1,40 @@
+//@version=2
+// MESA Adaptive Moving Average
+// aka: Mother of Adaptive Moving Averages
+// Creator: John EHLERS
+//author: KIVANÇ @fr3762 on Twitter
+
+study("MAMA by EHLERS", shorttitle="MAMA", overlay=true)
+Price=input(hl2, title="Source")
+fastlimit=input(0.5, title="Fast Limit")
+slowlimit=input(0.05, title="Slow Limit")
+
+smooth = (4*Price + 3*Price[1] + 2*Price[2] + Price[3])/10
+detrender = (0.0962*smooth + 0.5769*nz(smooth[2]) - 0.5769*nz(smooth[4])- 0.0962*nz(smooth[6]))*(0.075*nz(Period[1]) + 0.54)
+q1 = (0.0962*detrender + 0.5769*nz(detrender[2]) - 0.5769*nz(detrender[4])- 0.0962*nz(detrender[6]))*(0.075*nz(Period[1]) + 0.54)
+i1 = nz(detrender[3])
+jI = (0.0962*i1 + 0.5769*nz(i1[2]) - 0.5769*nz(i1[4])- 0.0962*nz(i1[6]))*(0.075*nz(Period[1]) + 0.54)
+jq = (0.0962*q1 + 0.5769*nz(q1[2]) - 0.5769*nz(q1[4])- 0.0962*nz(q1[6]))*(0.075*nz(Period[1]) + 0.54)
+i21 = i1 - jq
+q21 = q1 + jI
+i2 = 0.2*i21 + 0.8*nz(i2[1])
+q2 = 0.2*q21 + 0.8*nz(q2[1])
+re1 = i2*nz(i2[1]) + q2*nz(q2[1])
+im1 = i2*nz(q2[1]) - q2*nz(i2[1])
+re = 0.2*re1 + 0.8*nz(re[1])
+im = 0.2*im1 + 0.8*nz(im[1])
+p1 = iff(im!=0 and re!=0, 2* 4 * atan(1)/atan(im/re), nz(Period[1]))
+p2 = iff(p1 > 1.5*nz(p1[1]), 1.5*nz(p1[1]), iff(p1 < 0.67*nz(p1[1]), 0.67*nz(p1[1]), p1))
+p3 = iff(p2<6, 6, iff (p2 > 50, 50, p2))
+Period = 0.2*p3 + 0.8*nz(p3[1])
+SmoothPeriod = 0.33*Period + 0.67*nz(SmoothPeriod[1])
+Phase = 180/(4 * atan(1))*atan(q1 / i1)
+DeltaPhase1 = nz(Phase[1]) - Phase
+DeltaPhase = iff(DeltaPhase1< 1, 1, DeltaPhase1)
+alpha1 = fastlimit / DeltaPhase
+alpha = iff(alpha1 < slowlimit, slowlimit, iff(alpha1 > fastlimit, fastlimit, alpha1))
+MAMA = alpha*Price + (1 - alpha)*nz(MAMA[1])
+FAMA = 0.5*alpha*MAMA + (1 - 0.5*alpha)*nz(FAMA[1])
+
+plot(MAMA, title="MAMA", color=blue, linewidth=2)
+plot(FAMA, title="FAMA", color=maroon, linewidth=2)

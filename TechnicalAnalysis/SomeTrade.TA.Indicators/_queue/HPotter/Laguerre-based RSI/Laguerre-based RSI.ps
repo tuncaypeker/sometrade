@@ -1,0 +1,21 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 29/04/2014
+// This is RSI indicator which is more sesitive to price changes. 
+// It is based upon a modern math tool - Laguerre transform filter.
+// With help of Laguerre filter one becomes able to create superior 
+// indicators using very short data lengths as well. The use of shorter 
+// data lengths means you can make the indicators more responsive to 
+// changes in the price.
+////////////////////////////////////////////////////////////
+study(title="Laguerre-based RSI", shorttitle="Laguerre-RSI")
+gamma = input(0.5, minval=-0.1, maxval = 0.9)
+hline(0.80, color=blue, linestyle=line)
+hline(0.20, color=blue, linestyle=line)
+xL0 = (1-gamma) * close + gamma * nz(xL0[1], 1)
+xL1 = - gamma * xL0 + nz(xL0[1], 1) + gamma * nz(xL1[1], 1)
+xL2 = - gamma * xL1 + nz(xL1[1], 1) + gamma * nz(xL2[1], 1)
+xL3 = - gamma * xL2 + nz(xL2[1], 1) + gamma * nz(xL3[1], 1)
+CU = (xL0 >= xL1 ? xL0 - xL1 : 0) + (xL1 >= xL2 ? xL1 - xL2 : 0)  + (xL2 >= xL3 ? xL2 - xL3 : 0)
+CD = (xL0 >= xL1 ? 0 : xL1 - xL0) + (xL1 >= xL2 ? 0 : xL2 - xL1)  + (xL2 >= xL3 ? 0 : xL3 - xL2)
+nRes = iff(CU + CD != 0, CU / (CU + CD), 0)
+plot(nRes, color=red, title="Laguerre-based RSI")

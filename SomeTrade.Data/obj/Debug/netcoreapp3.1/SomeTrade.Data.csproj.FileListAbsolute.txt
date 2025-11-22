@@ -1,0 +1,17 @@
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Data.deps.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Data.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Data.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Infrastructure.Interfaces.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Infrastructure.Logging.DummyLog.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Model.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Infrastructure.Logging.DummyLog.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Infrastructure.Interfaces.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\bin\Debug\netcoreapp3.1\SomeTrade.Model.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\obj\Debug\netcoreapp3.1\SomeTrade.Data.csproj.AssemblyReference.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\obj\Debug\netcoreapp3.1\SomeTrade.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\obj\Debug\netcoreapp3.1\SomeTrade.Data.AssemblyInfoInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\obj\Debug\netcoreapp3.1\SomeTrade.Data.AssemblyInfo.cs
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\obj\Debug\netcoreapp3.1\SomeTrade.Data.csproj.CoreCompileInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\obj\Debug\netcoreapp3.1\SomeTrade.Data.csproj.CopyComplete
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\obj\Debug\netcoreapp3.1\SomeTrade.Data.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Data\obj\Debug\netcoreapp3.1\SomeTrade.Data.pdb

@@ -1,0 +1,81 @@
+﻿// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © HeWhoMustNotBeNamed
+
+//@version=4
+study("Adoptive Supertrend - Bands", overlay=true)
+BandType = input(title="Channel Type", defval="Bollinger Bands", options=[ "Donchian Channel", "Bollinger Bands", "Keltner Channel", "Donchian - Pivot"])
+ChannelLength = input(20, step=5)
+StdDev = input(1, step=0.5)
+pvtLen = input(2)
+
+WaitForClose  = input(true,  title="Wait For Candle Close Before Printing Pivot")
+Pd  = input(22, title="ATR Periods")
+Mult= input(1, step=0.5, title="ATR Multiplier for Non pivot stop")
+wicks = input(false)
+
+donchian(highSource, lowSource, rangeLength)=>
+    top = highest(highSource, rangeLength)
+    bottom = lowest(lowSource, rangeLength)
+    middle = (top+bottom)/2
+    [middle, top, bottom]
+
+f_calculatePivots(pvtLen, Shunt)=>
+    pvthi_ = pivothigh(high, pvtLen, pvtLen)
+    pvtlo_ = pivotlow(low, pvtLen, pvtLen)
+    
+    pvthi = pvthi_[Shunt]
+    pvtlo = pvtlo_[Shunt]
+    
+    pvthighline = pvthi
+    pvthighline := na(pvthighline)? nz(pvthighline[1]): pvthighline
+    
+    pvtlowline = pvtlo
+    pvtlowline := na(pvtlowline)? nz(pvtlowline[1]): pvtlowline
+    
+    higherhigh = na(pvthi) ? na : ( valuewhen(pvthi, high[pvtLen+Shunt], 1) < valuewhen(pvthi, high[pvtLen+Shunt], 0) ) ? pvthi : na
+    lowerhigh  = na(pvthi) ? na : ( valuewhen(pvthi, high[pvtLen+Shunt], 1) > valuewhen(pvthi, high[pvtLen+Shunt], 0) ) ? pvthi : na
+    higherlow  = na(pvtlo) ? na : ( valuewhen(pvtlo, low[pvtLen+Shunt], 1)  < valuewhen(pvtlo, low[pvtLen+Shunt], 0) )  ? pvtlo : na
+    lowerlow   = na(pvtlo) ? na : ( valuewhen(pvtlo, low[pvtLen+Shunt], 1)  > valuewhen(pvtlo, low[pvtLen+Shunt], 0) )  ? pvtlo : na
+    
+    [pvthighline, pvtlowline, higherhigh, lowerhigh, higherlow, lowerlow]
+
+f_getBands(BandType, Periods, StdDev, pvtLen)=>
+    [pvthighline, pvtlowline, higherhigh, lowerhigh, higherlow, lowerlow] = f_calculatePivots(pvtLen, 1)
+    [middleBB, upperBB, lowerBB] = bb(close, Periods, StdDev)
+    [middleKC, upperKC, lowerKC] = kc(close, Periods, StdDev)
+    [middleDC, upperDC, lowerDC] = donchian(high, low, Periods)
+    [middleDCP, upperDCP, lowerDCP] = donchian(pvthighline, pvtlowline, Periods)
+    middle = BandType == "Bollinger Bands"? middleBB : BandType == "Keltner Channel"? middleKC : BandType == "Donchian Channel"? middleDC : middleDCP
+    upper = BandType == "Bollinger Bands"? upperBB : BandType == "Keltner Channel"? upperKC : BandType == "Donchian Channel"? upperDC : upperDCP
+    lower = BandType == "Bollinger Bands"? lowerBB : BandType == "Keltner Channel"? lowerKC : BandType == "Donchian Channel"? lowerDC : lowerDCP
+    [middle, upper, lower]
+    
+
+f_get_trailing_stop(BandType, ChannelLength, StdDev, pvtLen, Pd, Mult, wicks)=>
+    [middle, upper, lower] = f_getBands(BandType, ChannelLength, StdDev, pvtLen)
+    
+    atr = atr(Pd)
+    dir = 1
+
+    longTarget = wicks? low : close
+    shortTarget = wicks? high : close
+
+    longStop = lower - atr*Mult
+    longStopPrev = nz(longStop[1], longStop)
+    longStop := dir[1] == 1? max(longStop, longStopPrev) :longStop 
+
+    shortStop = upper + atr*Mult
+    shortStopPrev = nz(shortStop[1], shortStop)
+    shortStop := dir[1] == -1? min(shortStop, shortStopPrev) : shortStop
+    
+    dir := nz(dir[1]) == -1 and shortTarget >= shortStopPrev ? 1 : nz(dir[1]) == 1 and longTarget <= longStopPrev ? -1 : nz(dir[1], dir)
+    [dir, longStop, shortStop]
+
+
+[barState, buyStop, sellStop] = f_get_trailing_stop(BandType, ChannelLength, StdDev, pvtLen, Pd, Mult, wicks)
+trendColor = barState == 1? color.green : barState == -1? color.red : color.silver
+
+trailingStop = buyStop
+trailingStop := (barState == 1) ? buyStop : ((barState == -1) ? sellStop : trailingStop[1])
+
+plot(trailingStop, title="TrailingStop", color=trendColor, linewidth=2, style=plot.style_linebr)

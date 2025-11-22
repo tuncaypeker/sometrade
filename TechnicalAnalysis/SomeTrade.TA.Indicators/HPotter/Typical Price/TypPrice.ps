@@ -1,0 +1,8 @@
+//@version=2
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 12/05/2017
+// The Typical Price indicates an average of each day’s price.
+////////////////////////////////////////////////////////////
+study(title="Typical Price", shorttitle="TP", overlay=true)
+nRes = hlc3
+plot(nRes, color=blue, title="TP", style=line)

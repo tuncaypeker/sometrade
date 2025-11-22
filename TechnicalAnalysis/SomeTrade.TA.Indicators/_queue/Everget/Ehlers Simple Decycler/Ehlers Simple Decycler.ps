@@ -1,0 +1,36 @@
+//@version=3
+// Copyright (c) 2019-present, Alex Orekhov (everget)
+// Ehlers Simple Decycler script may be freely distributed under the MIT license.
+study("Ehlers Simple Decycler", shorttitle="Decycler", overlay=true)
+
+highpassLength = input(title="Highpass Period", type=integer, defval=125)
+upperPercent = input(title="Upper Band % Shift", type=float, minval=0, step=0.1, defval=0.5)
+lowerPercent = input(title="Lower Band % Shift", type=float, minval=0, step=0.1, defval=0.5)
+src = input(title="Source", type=source, defval=close)
+highlightMovements = input(title="Highlight Decycler Movements ?", type=bool, defval=true)
+
+PI = 2 * asin(1)
+
+// High-pass Filter
+alphaArg = 2 * PI / (highpassLength * sqrt(2))
+
+alpha = 0.0
+alpha := cos(alphaArg) != 0
+     ? (cos(alphaArg) + sin(alphaArg) - 1) / cos(alphaArg)
+     : nz(alpha[1])
+
+hp = 0.0
+hp := pow(1 - (alpha / 2), 2) * (src - 2 * nz(src[1]) + nz(src[2])) + 2 * (1 - alpha) * nz(hp[1]) - pow(1 - alpha, 2) * nz(hp[2])
+
+decycler = src - hp
+
+decyclerColor = highlightMovements ? (decycler >= decycler[1] ? green : red) : #741b47
+plot(decycler, title="Decycler", linewidth=2, color=decyclerColor, transp=0)
+
+upperBand = (1 + upperPercent / 100) * decycler
+lowerBand = (1 - lowerPercent / 100) * decycler
+
+bandColor = #138484
+upperBandPlot = plot(upperBand, title="Upper", color=bandColor)
+lowerBandPlot = plot(lowerBand, title="Lower", color=bandColor)
+fill(upperBandPlot, lowerBandPlot, title="Background", color=color(#ffd966, 84))

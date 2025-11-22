@@ -1,0 +1,9 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 11/04/2014
+//    This is a bearish reversal candlestick which occurs in an uptrend. It has a long 
+//    upper shadow with little, or no lower shadow, and a small real body near the lows 
+//    of the session. 
+////////////////////////////////////////////////////////////
+
+study(title = "Shooting Star", overlay = true)
+barcolor(open[1] < close[1] ? open > close[1] ? high - max(open, close) >= abs(open - close) * 3 ? min(close, open) - low <= abs(open - close) ? yellow :na :na :na :na )

@@ -1,0 +1,20 @@
+//
+// @author LazyBear 
+// List of all my indicators: 
+// https://docs.google.com/document/d/15AGCufJZ8CIUvwFJ9W-IKns88gkWOKBCvByMEvm5MLo/edit?usp=sharing
+//
+study("Elder Market Thermometer [LazyBear]", shorttitle="EMT_LB")
+lengthMA=input(22, "EMA Length")
+explosiveMktThreshold=input(3, title="Explosive Market Threshold")
+idleMarketThreshold=input(7, title="Idle Market Threshold")
+
+emt =   iff (high<high[1] and low>low[1], 0, 
+        iff ((high - high[1]) > (low[1] - low), abs(high - high[1]), abs(low[1] - low)))
+
+aemt = ema(emt, lengthMA)
+qc=aemt>emt?nz(qc[1])+1:0
+cemt = (emt < aemt) ? qc>idleMarketThreshold?green:blue : 
+        ((emt > aemt) and (emt < aemt*explosiveMktThreshold)) ? orange : red
+
+plot(emt, color=cemt, style=columns, linewidth=2, title="Market Thermometer")
+plot(aemt, color=#FE00DE, title="EMA of Market Thermometer")

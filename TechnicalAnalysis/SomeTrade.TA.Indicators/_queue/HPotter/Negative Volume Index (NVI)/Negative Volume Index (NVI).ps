@@ -1,0 +1,20 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 11/06/2014
+// The theory behind the indexes is as follows: On days of increasing 
+// volume, you can expect prices to increase, and on days of decreasing 
+// volume, you can expect prices to decrease. This goes with the idea of 
+// the market being in-gear and out-of-gear. Both PVI and NVI work in similar 
+// fashions: Both are a running cumulative of values, which means you either 
+// keep adding or subtracting price rate of change each day to the previous day`s 
+// sum. In the case of PVI, if today`s volume is less than yesterday`s, don`t add 
+// anything; if today`s volume is greater, then add today`s price rate of change. 
+// For NVI, add today`s price rate of change only if today`s volume is less than 
+// yesterday`s. 
+////////////////////////////////////////////////////////////
+study(title="Negative Volume Index", shorttitle="Negative Volume Index")
+EMA_Len = input(255, minval=1)
+xROC = roc(close, 1)
+nRes = iff(volume < volume[1], nz(nRes[1], 0) + xROC, nz(nRes[1], 0))
+nResEMA = ema(nRes, EMA_Len)
+plot(nRes, color=red, title="NVI")
+plot(nResEMA, color=blue, title="EMA")

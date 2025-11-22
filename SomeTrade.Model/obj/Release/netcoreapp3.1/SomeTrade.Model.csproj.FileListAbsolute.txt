@@ -1,0 +1,10 @@
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\bin\Release\netcoreapp3.1\SomeTrade.Model.deps.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\bin\Release\netcoreapp3.1\SomeTrade.Model.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\bin\Release\netcoreapp3.1\SomeTrade.Model.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\obj\Release\netcoreapp3.1\SomeTrade.Model.csproj.AssemblyReference.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\obj\Release\netcoreapp3.1\SomeTrade.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\obj\Release\netcoreapp3.1\SomeTrade.Model.AssemblyInfoInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\obj\Release\netcoreapp3.1\SomeTrade.Model.AssemblyInfo.cs
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\obj\Release\netcoreapp3.1\SomeTrade.Model.csproj.CoreCompileInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\obj\Release\netcoreapp3.1\SomeTrade.Model.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\SomeTrade.Model\obj\Release\netcoreapp3.1\SomeTrade.Model.pdb

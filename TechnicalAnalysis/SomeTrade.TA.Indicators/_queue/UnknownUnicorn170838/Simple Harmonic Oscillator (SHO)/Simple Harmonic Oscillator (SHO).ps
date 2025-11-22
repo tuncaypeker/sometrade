@@ -1,0 +1,49 @@
+//@version=3
+// Quick explanation how to trade this indicator:
+// https://puu.sh/zEVms/f9ec85d413.jpg
+// 
+study("Simple Harmonic Oscillator", overlay = false, precision=5)
+
+src = input(close) 
+len = input(14, "SHO Length")
+pi=3.14159265359
+
+sho(s)=>
+    C = s
+    Cy = C[1]
+    Cby = C[2]
+    Vt = C - Cy
+    Vy = Cy - Cby
+    At = Vt - Vy
+    A = ema(At, len)
+    T = 2 * pi * (sqrt(abs(Vt / A)))
+    Ti = C > Cy ? T : T * -1
+    VP = ema(Ti, len)
+    TP = ema(T, len)
+    SHO= (VP / TP) * 100
+
+cgreen = green
+cred = red
+ 
+sho_line = sho(src)
+signal=sma(sho_line, 3)
+
+plot(signal, color = sho_line > 0 ? cgreen : cred, style = histogram,linewidth=2, transp=0, title="SPO")
+plot(sho_line, color = silver, linewidth=1, transp=30, title="Signal")
+plot(signal, color = rising(signal, 1)? green:red, linewidth=2, transp=30, title="Signal")
+
+hline(40, title="")
+hline(0, title="")
+hline(-40, title="")
+
+div_max = 40
+p1 = plot(div_max, color = silver, style = circles, title="")
+p2 = plot(div_max * -1, color = silver, style = circles, title="")
+
+pmax = plot(max(div_max, sho_line), color = na, title="")
+pmin = plot(min(div_max * -1, sho_line), color = na, title="")
+
+cred_overbought = red
+cgreen_oversold = green
+fill(p1, pmax, color = cred_overbought, transp = 50)
+fill(p2, pmin, color = cgreen_oversold, transp = 50)

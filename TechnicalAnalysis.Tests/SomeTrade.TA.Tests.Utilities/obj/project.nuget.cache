@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "FqiWog8JKB4=",
+  "success": true,
+  "projectFilePath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tunca\\.nuget\\packages\\binance.net\\8.4.3\\binance.net.8.4.3.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\cryptoexchange.net\\5.4.1\\cryptoexchange.net.5.4.1.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\htmlagilitypack\\1.11.34\\htmlagilitypack.1.11.34.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.0\\microsoft.extensions.dependencyinjection.abstractions.3.1.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.0\\microsoft.extensions.logging.abstractions.3.1.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

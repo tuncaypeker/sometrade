@@ -1,0 +1,154 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj": {}
+  },
+  "projects": {
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj",
+        "projectName": "SomeTrade.Infrastructure.Extensions",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.34, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj",
+        "projectName": "SomeTrade.TA.Tests.Utilities",
+        "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\SomeTrade.TA.Tests.Utilities.csproj",
+        "packagesPath": "C:\\Users\\tunca\\.nuget\\packages\\",
+        "outputPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis.Tests\\SomeTrade.TA.Tests.Utilities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tunca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj": {
+                "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\Infrastructure\\SomeTrade.Infrastructure.Extensions\\SomeTrade.Infrastructure.Extensions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Binance.Net": {
+              "target": "Package",
+              "version": "[8.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

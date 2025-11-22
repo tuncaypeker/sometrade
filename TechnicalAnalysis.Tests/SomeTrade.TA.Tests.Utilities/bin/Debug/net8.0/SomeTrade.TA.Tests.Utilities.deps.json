@@ -1,0 +1,138 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SomeTrade.TA.Tests.Utilities/1.0.0": {
+        "dependencies": {
+          "Binance.Net": "8.4.3",
+          "SomeTrade.Infrastructure.Extensions": "1.0.0"
+        },
+        "runtime": {
+          "SomeTrade.TA.Tests.Utilities.dll": {}
+        }
+      },
+      "Binance.Net/8.4.3": {
+        "dependencies": {
+          "CryptoExchange.Net": "5.4.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Binance.Net.dll": {
+            "assemblyVersion": "8.4.3.0",
+            "fileVersion": "8.4.3.0"
+          }
+        }
+      },
+      "CryptoExchange.Net/5.4.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/CryptoExchange.Net.dll": {
+            "assemblyVersion": "5.4.1.0",
+            "fileVersion": "5.4.1.0"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.34": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.34.0",
+            "fileVersion": "1.11.34.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.100.19.56504"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/3.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.100.19.56504"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "SomeTrade.Infrastructure.Extensions/1.0.0": {
+        "dependencies": {
+          "HtmlAgilityPack": "1.11.34"
+        },
+        "runtime": {
+          "SomeTrade.Infrastructure.Extensions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SomeTrade.TA.Tests.Utilities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Binance.Net/8.4.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vDPn31xvxQaDInpEYRnThZZrt6UMAwFZOsi0lKTGOo/OTcFtimikbGf6xUpwTWg8/Sfllm2ieFN1J31NqT5YZg==",
+      "path": "binance.net/8.4.3",
+      "hashPath": "binance.net.8.4.3.nupkg.sha512"
+    },
+    "CryptoExchange.Net/5.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SWH8ZueUjRCZbY1GtoiqUXciUzv7YXQBasF+lZOl/y6WUDRNZwawEhyAdpHRajG3xuAZd65wSdo21/S0hrJHqg==",
+      "path": "cryptoexchange.net/5.4.1",
+      "hashPath": "cryptoexchange.net.5.4.1.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.34": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LJyKMPuQVRi68RnPRmptSSJa1r3adpIfII/tfyMkismDhgmdS0i2ruOGF3Y7Ocxt4IfnhG76BNIa4dzMfR+KYw==",
+      "path": "htmlagilitypack/1.11.34",
+      "hashPath": "htmlagilitypack.1.11.34.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-44rDtOf1JXXAFpNT2EXMExaDm/4OJ2RXOL9i9lE4bK427nzC7Exphv+beB6IgluyE2GIoo8zezTStMXI7MQ8WA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jjo4YXRx6MIpv6DiRxJjSpl+sPP0+5VW0clMEdLyIAz44PPwrDTFrd5PZckIxIXl1kKZ2KK6IL2nkt0+ug2MQg==",
+      "path": "microsoft.extensions.logging.abstractions/3.1.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.3.1.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "SomeTrade.Infrastructure.Extensions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

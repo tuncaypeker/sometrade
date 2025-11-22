@@ -1,0 +1,74 @@
+https://tr.tradingview.com/script/SQRSlcup/
+
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © EmreKb
+
+//@version=5
+indicator("Quasimodo Pattern", "QML", overlay=true, max_bars_back=5000, max_labels_count=500, max_lines_count=500)
+
+zigzag_len = input.int(13, "ZigZag Length")
+
+var float[] high_points_arr = array.new_float(5)
+var int[] high_index_arr = array.new_int(5)
+var float[] low_points_arr = array.new_float(5)
+var int[] low_index_arr = array.new_int(5)
+
+to_up = high >= ta.highest(zigzag_len)
+to_down = low <= ta.lowest(zigzag_len)
+
+trend = 1
+trend := nz(trend[1], 1)
+trend := trend == 1 and to_down ? -1 : trend == -1 and to_up ? 1 : trend
+
+last_trend_up_since = ta.barssince(to_up[1])
+low_val = ta.lowest(nz(last_trend_up_since > 0 ? last_trend_up_since : 1, 1))
+low_index = bar_index - ta.barssince(low_val == low)
+
+last_trend_down_since = ta.barssince(to_down[1])
+high_val = ta.highest(nz(last_trend_down_since > 0 ? last_trend_down_since : 1, 1))
+high_index = bar_index - ta.barssince(high_val == high)
+
+if ta.change(trend) != 0
+    if trend == 1
+        array.push(low_points_arr, low_val)
+        array.push(low_index_arr, low_index)
+    if trend == -1
+        array.push(high_points_arr, high_val)
+        array.push(high_index_arr, high_index)
+
+
+f_get_high(ind) =>
+    [array.get(high_points_arr, array.size(high_points_arr) - 1 - ind), array.get(high_index_arr, array.size(high_index_arr) - 1 - ind)]
+
+
+f_get_low(ind) =>
+    [array.get(low_points_arr, array.size(low_points_arr) - 1 - ind), array.get(low_index_arr, array.size(low_index_arr) - 1 - ind)]
+
+
+[h0, h0i] = f_get_high(0)
+[l0, l0i] = f_get_low(0)
+[h1, h1i] = f_get_high(1)
+[l1, l1i] = f_get_low(1)
+[h2, h2i] = f_get_high(2)
+[l2, l2i] = f_get_low(2)
+
+bu_cond = trend == -1 and h2 > h1 and l1 > l0 and h0 > h1 and close > l1
+be_cond = trend == 1 and l2 < l1 and h1 < h0 and l0 < l1 and close < h1
+
+if bu_cond and not bu_cond[1]
+    line.new(h2i, h2, l1i, l1, color=color.green, width=2)
+    line.new(l1i, l1, h1i, h1, color=color.green, width=2)
+    line.new(h1i, h1, l0i, l0, color=color.green, width=2)
+    line.new(l0i, l0, h0i, h0, color=color.green, width=2)
+    line.new(l1i, l1, bar_index, l1, color=color.green, width=2)
+    label.new(bar_index, l1, "QM!", style=label.style_label_up, textcolor=color.white, color=color.green, size=size.tiny)
+    alert("Bullish QM!", alert.freq_once_per_bar)
+
+if be_cond and not be_cond[1]
+    line.new(l2i, l2, h1i, h1, color=color.red, width=2)
+    line.new(h1i, h1, l1i, l1, color=color.red, width=2)
+    line.new(l1i, l1, h0i, h0, color=color.red, width=2)
+    line.new(h0i, h0, l0i, l0, color=color.red, width=2)
+    line.new(h1i, h1, bar_index, h1, color=color.red, width=2)
+    label.new(bar_index, h1, "QM!", style=label.style_label_down, textcolor=color.white, color=color.red, size=size.tiny)
+    alert("Bearish QM!", alert.freq_once_per_bar)

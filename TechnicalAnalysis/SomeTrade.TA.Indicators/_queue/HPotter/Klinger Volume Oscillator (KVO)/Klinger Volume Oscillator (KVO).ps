@@ -1,0 +1,34 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 09/06/2014
+// The Klinger Oscillator (KO) was developed by Stephen J. Klinger. Learning 
+// from prior research on volume by such well-known technicians as Joseph Granville, 
+// Larry Williams, and Marc Chaikin, Mr. Klinger set out to develop a volume-based 
+// indicator to help in both short- and long-term analysis.
+// The KO was developed with two seemingly opposite goals in mind: to be sensitive 
+// enough to signal short-term tops and bottoms, yet accurate enough to reflect the 
+// long-term flow of money into and out of a security.
+// The KO is based on the following tenets:
+// Price range (i.e. High - Low) is a measure of movement and volume is the force behind 
+// the movement. The sum of High + Low + Close defines a trend. Accumulation occurs when 
+// today's sum is greater than the previous day's. Conversely, distribution occurs when 
+// today's sum is less than the previous day's. When the sums are equal, the existing trend 
+// is maintained.
+// Volume produces continuous intra-day changes in price reflecting buying and selling pressure. 
+// The KO quantifies the difference between the number of shares being accumulated and distributed 
+// each day as "volume force". A strong, rising volume force should accompany an uptrend and then 
+// gradually contract over time during the latter stages of the uptrend and the early stages of 
+// the following downtrend. This should be followed by a rising volume force reflecting some 
+// accumulation before a bottom develops.
+////////////////////////////////////////////////////////////
+study(title="Klinger Volume Oscillator (KVO)", shorttitle="KVO")
+TrigLen = input(13, minval=1)
+FastX = input(34, minval=1)
+SlowX = input(55, minval=1)
+hline(0, color=gray, linestyle=line)
+xTrend = iff(hlc3 > hlc3[1], volume * 100, -volume * 100)
+xFast = ema(xTrend, FastX)
+xSlow = ema(xTrend, SlowX)
+xKVO = xFast - xSlow
+xTrigger = ema(xKVO, TrigLen)
+plot(xKVO, color=blue, title="KVO")
+plot(xTrigger, color=red, title="Trigger")

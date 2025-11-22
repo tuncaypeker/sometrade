@@ -1,0 +1,133 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © LIXXCHARTZ
+
+//@version=4
+study("Harmonic Indicator", overlay = true)
+length = input(5, title = "Length")
+h = highest(high, length * 2 + 1)
+l = lowest(low, length * 2 + 1)
+f_isMin(len) => 
+    l == low[len]
+f_isMax(len) => 
+    h == high[len]
+
+var dirUp = false
+var lastLow = high * 100
+var lastHigh = 0.0
+var timeLow = bar_index
+var timeHigh = bar_index
+var line li = na
+f_drawLine() =>
+    _li_color = dirUp ? color.red : color.green
+    line.new(
+         timeHigh - length, lastHigh, 
+         timeLow - length, lastLow, 
+         xloc.bar_index, color=_li_color, width=2
+         )
+
+if dirUp
+    if (f_isMin(length) and low[length] < lastLow)
+        lastLow := low[length]
+        timeLow := bar_index
+        line.delete(li)
+        li := f_drawLine()
+
+    if (f_isMax(length) and high[length] > lastLow)
+        lastHigh := high[length]
+        timeHigh := bar_index
+        dirUp := false
+        li := f_drawLine()
+
+if not dirUp
+    if (f_isMax(length) and high[length] > lastHigh)
+        lastHigh := high[length]
+        timeHigh := bar_index
+        line.delete(li)
+        li := f_drawLine()
+    if f_isMin(length) and low[length] < lastHigh
+        lastLow := low[length]
+        timeLow := bar_index
+        dirUp := true
+        li := f_drawLine()
+        if (f_isMax(length) and high[length] > lastLow)
+            lastHigh := high[length]
+            timeHigh := bar_index
+            dirUp := false
+            li := f_drawLine()
+
+LLHH = f_isMax(length) and high[length] > lastLow ? high[length] : f_isMin(length) and low[length] < lastHigh ? low[length] : na
+// for alerts
+x = valuewhen(LLHH, LLHH, 3)
+a = valuewhen(LLHH, LLHH, 2)
+b = valuewhen(LLHH, LLHH, 1)
+c = valuewhen(LLHH, LLHH, 0)
+
+//gartley and cypher 
+xab = (abs(b - a)/abs(x - a))
+abc = (abs(c - b)/abs(a - b))
+axc = (abs(c - x)/abs(a - x))
+
+//gartley
+gxab = xab >= .618 and xab < .786
+gabc = abc >= .618 and abc < 1
+//cypher
+cxab = xab >= .382 and xab < .618
+caxc = axc >= 1.272 and axc < 1.414
+
+
+gartleyalert = gxab and gabc and a > x and f_isMax(length) and high[length] > lastLow ? gxab and gabc and a > x and f_isMax(length) and high[length] : gxab and gabc and x > a and f_isMin(length) and low[length] < lastHigh
+gartleybull = gxab and gabc and a > x and f_isMax(length) and high[length] > lastLow? high[length] : na
+gartleybear = gxab and gabc and x > a and f_isMin(length) and low[length] < lastHigh? low[length] : na
+gartleybulltf = gxab and gabc and a > x and f_isMax(length) and high[length] > lastLow
+gartleybeartf = gxab and gabc and x > a and f_isMin(length) and low[length] < lastHigh
+
+cypheralert = cxab and caxc and a > x and f_isMax(length) and high[length] > lastLow ? cxab and caxc and a > x and f_isMax(length) and high[length] > lastLow : cxab and caxc and x > a and f_isMin(length) and low[length] < lastHigh
+cypherbull = cxab and caxc and a > x and f_isMax(length) and high[length] > lastLow? high[length] : na
+cypherbear = cxab and caxc and x > a and f_isMin(length) and low[length] < lastHigh? low[length] : na
+cypherbulltf = cxab and caxc and a > x and f_isMax(length) and high[length] > lastLow
+cypherbeartf = cxab and caxc and x > a and f_isMin(length) and low[length] < lastHigh
+
+plotshape(gartleybull, title = 'Gartley Alert Bullish', text = 'Gartley Setup', style = shape.labeldown, color = color.green, textcolor = color.white, transp = 0, offset = -length, size = size.auto, location = location.abovebar)
+plotshape(gartleybear, title = 'Gartley Alert Bearish', text = 'Gartley Setup', style = shape.labelup, color = color.red, textcolor = color.white, transp = 0, offset = -length, size = size.auto, location = location.belowbar)
+plotshape(cypherbull, title = 'Cypher Alert Bullish', text = 'Cypher Setup', style = shape.labeldown, color = color.green, textcolor = color.white, transp = 0, offset = -length, size = size.auto, location = location.abovebar)
+plotshape(cypherbear, title = 'Cypher Alert Bearish', text = 'Cypher Setup', style = shape.labelup, color = color.red, textcolor = color.white, transp = 0, offset = -length, size = size.auto, location = location.belowbar)
+ 
+//gartley buy/short line
+gbulld = gartleybulltf ? b - ((a - b) * 1.272 - (a - b)) : na
+gbeard = gartleybeartf ? b + ((b - a) * 1.272 - (b - a)) : na
+
+entrytimegartleybull = gartleybulltf ? bar_index : na
+entrytimegartleybear = gartleybeartf ? bar_index : na
+
+line.new(entrytimegartleybull, gbulld, entrytimegartleybull - 10, gbulld, color = color.green)
+line.new(entrytimegartleybear, gbeard, entrytimegartleybear - 10, gbeard, color = color.red)
+
+//gartley exit line
+
+gbullclose = valuewhen(close < gbulld and open > gbulld, close, 0)
+gbullclosetf = close < gbulld and open > gbulld
+
+exittimegbull = gbullclosetf ? bar_index : na
+
+gbulltarget = c - ((c - gbullclose) * .618)
+
+line.new(exittimegbull, gbulltarget, exittimegbull - 5, gbulltarget, color = color.yellow)
+
+//cypher buy/short line
+cbulld = cypherbulltf ? c - ((c - x) * .786) : na
+cbeard = cypherbeartf ? c + ((x - c) * .786) : na
+
+entrytimecypherbull = cypherbulltf ? bar_index : na
+entrytimecypherbear = cypherbeartf ? bar_index : na
+
+line.new(entrytimecypherbull, cbulld, entrytimecypherbull - 10, cbulld, color = color.green)
+line.new(entrytimecypherbear, cbeard, entrytimecypherbear - 10, cbeard, color = color.red)
+
+
+//Alerts - In order to get the alerts, you need to turn them on in your charts !!
+alertcondition(gartleyalert, title = 'Gartley Alert')
+alertcondition(cypheralert, title = 'Cypher Alert')
+
+//test alerts
+// plotchar(gartleyalert)
+// plotchar(cypheralert)

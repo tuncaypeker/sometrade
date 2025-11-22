@@ -1,0 +1,39 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © LonesomeTheBlue
+
+//@version=4
+study("Trend Follower", precision=0)
+matype= input('EMA', title = "MA Type", options =['EMA', 'SMA', 'RMA', 'WMA', 'VWMA'])
+prd = input(20, title = "Period to Check Trend", minval = 5)
+maprd = input(20, title = "MA Period", minval = 2)
+rateinp = input(1, title = "Trend Channel Rate %", minval = 0.1, step = 0.1)
+ulinreg = input(true, title = "Use Linear Regression")
+linprd = input(5, title = "Linear Regression Period", minval = 2)
+
+rate = rateinp / 100
+pricerange = highest(280) - lowest(280)
+chan = pricerange * rate
+    
+gettrend(len)=>
+    masrc = matype == 'EMA' ? ema(close, len) : matype == 'RMA' ? rma(close, len) : matype == 'VWMA' ? vwma(close, len) : matype == 'WMA' ? wma(close, len) : sma(close, len)
+    ma = ulinreg ? linreg(masrc, linprd, 0) : masrc
+    
+    hh = highest(ma, prd)
+    ll = lowest(ma, prd)
+    diff = abs(hh - ll)
+    
+    trend = iff(diff > chan, iff(ma > ll + chan, 1, iff(ma < hh - chan, -1, 0)), 0)
+    _ret = trend * diff / chan
+    _ret
+
+trend = gettrend(maprd)s
+
+trandchanged = trend - nz(trend[1])
+tcol =  trend > 0 ? trandchanged> 0 ? #00FF00ff : trandchanged <= 0 ? #00FF006f : #00FF00af :
+   trend < 0 ? trandchanged < 0 ? #FF0000ff: trandchanged >= 0 ? #FF00006f : #FF0000af : na
+
+plot(trend, color = tcol, style = plot.style_columns)
+
+alertcondition(trend > 0, title = 'Trend is UP', message = 'Trend is UP')
+alertcondition(trend < 0, title = 'Trend is DOWN', message = 'Trend is DOWN')
+alertcondition(trend == 0, title = 'NO TREND', message = 'NO TREND')

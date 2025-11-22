@@ -1,0 +1,13 @@
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\bin\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.deps.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\bin\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\bin\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\bin\Debug\netcoreapp3.1\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\bin\Debug\netcoreapp3.1\SomeTrade.TA.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\obj\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.csproj.AssemblyReference.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\obj\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\obj\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.AssemblyInfoInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\obj\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.AssemblyInfo.cs
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\obj\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.csproj.CoreCompileInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\obj\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.csproj.CopyComplete
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\obj\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.Indicators\obj\Debug\netcoreapp3.1\SomeTrade.TA.Indicators.pdb

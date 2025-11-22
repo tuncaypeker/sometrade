@@ -1,0 +1,19 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 28/04/2014
+// This Indicator plots the Force Index as described by Dr. Alexander 
+// Elder in "Trading For a Living." The ForceIndex indicator relates 
+// price to volume by multiplying net change and volume. ForceIndex is 
+// calculated using the following equation:
+// ForceIndex = Volume(today) * (Close(this period) - Close(last period))
+// ForceIndex is typically presented as two smoothed averages (slow and fast) 
+// to avoid false signals. 
+////////////////////////////////////////////////////////////
+study(title="Force Index", shorttitle="Force Index")
+XLen1 = input(3, minval=1)
+XLen2 = input(13, minval=1)
+hline(0, color=green, linestyle=line)
+xValue = volume * (close - close[1])
+xSMA1 = ema(xValue, XLen1)
+xSMA2 = ema(xValue, XLen2)
+plot(xSMA1, style = histogram, color=blue, title="SlowAvg")
+plot(xSMA2, color=red, title="FastAvg")

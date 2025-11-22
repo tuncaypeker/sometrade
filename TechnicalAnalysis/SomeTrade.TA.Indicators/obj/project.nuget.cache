@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "dgSpecHash": "W3S/5kONENc=",
+  "success": true,
+  "projectFilePath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\SomeTrade.TA.Indicators.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tunca\\.nuget\\packages\\cuttingedge.conditions\\1.2.0\\cuttingedge.conditions.1.2.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\oxyplot.core\\2.2.0\\oxyplot.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\oxyplot.imagesharp\\2.2.0\\oxyplot.imagesharp.2.2.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\sixlabors.fonts\\1.0.0\\sixlabors.fonts.1.0.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\sixlabors.imagesharp\\2.1.9\\sixlabors.imagesharp.2.1.9.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\sixlabors.imagesharp.drawing\\1.0.0\\sixlabors.imagesharp.drawing.1.0.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\tunca\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'CuttingEdge.Conditions 1.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "projectPath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\SomeTrade.TA.Indicators.csproj",
+      "warningLevel": 1,
+      "filePath": "E:\\Workarea\\_SomeTrade\\Workarea\\SomeTrade\\TechnicalAnalysis\\SomeTrade.TA.Indicators\\SomeTrade.TA.Indicators.csproj",
+      "libraryId": "CuttingEdge.Conditions",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+//@version=3
+// author: KIVANC @fr3762 on twitter
+// creator John EHLERS
+// en son baktigimda tradingview'de kod kapaliydi, nerden aldim hatirlamiyorum
+
+study("Inverse Fisher Transform on STOCHASTIC", shorttitle="IFTSTOCH")
+stochlength=input(5, "STOCH Length")
+wmalength=input(9, title="Smoothing length")
+v1=0.1*(stoch(close, high, low, stochlength)-50)
+v2=wma(v1, wmalength)
+INV=(exp(2*v2)-1)/(exp(2*v2)+1)
+plot(INV, color=blue, linewidth=2)
+hline(0.5, color=red)
+hline(-0.5, color=green)

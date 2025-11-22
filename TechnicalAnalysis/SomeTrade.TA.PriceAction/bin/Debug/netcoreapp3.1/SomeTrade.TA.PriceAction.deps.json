@@ -1,0 +1,54 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SomeTrade.TA.PriceAction/1.0.0": {
+        "dependencies": {
+          "SomeTrade.TA": "1.0.0"
+        },
+        "runtime": {
+          "SomeTrade.TA.PriceAction.dll": {}
+        }
+      },
+      "CuttingEdge.Conditions/1.2.0": {
+        "runtime": {
+          "lib/NET35/CuttingEdge.Conditions.dll": {
+            "assemblyVersion": "1.2.0.11174",
+            "fileVersion": "1.2.0.11174"
+          }
+        }
+      },
+      "SomeTrade.TA/1.0.0": {
+        "dependencies": {
+          "CuttingEdge.Conditions": "1.2.0"
+        },
+        "runtime": {
+          "SomeTrade.TA.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SomeTrade.TA.PriceAction/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CuttingEdge.Conditions/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TgasBGHEYgvvpROsw5aoxG36uvAqm9sdfgWQe4kd6Z03Rz69lldCjLDjLLdJB8WfwzDMt6N1psn7oR+xLriwYw==",
+      "path": "cuttingedge.conditions/1.2.0",
+      "hashPath": "cuttingedge.conditions.1.2.0.nupkg.sha512"
+    },
+    "SomeTrade.TA/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

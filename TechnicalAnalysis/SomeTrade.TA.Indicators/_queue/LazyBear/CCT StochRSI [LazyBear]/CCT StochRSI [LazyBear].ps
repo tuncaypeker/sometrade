@@ -1,0 +1,44 @@
+//
+// @author LazyBear 
+// 
+// List of my public indicators: http://bit.ly/1LQaPK8 
+// List of my app-store indicators: http://blog.tradingview.com/?p=970 
+//
+//
+study("CCT StochRSI [LazyBear]", shorttitle="CCTSTOCHRSI_LB")
+ull = input(90.0, title="Top Warning Line")
+lll = input(10.0, title="Bottom Warning Line")
+src = input(close)
+u1=hline( 100, color=gray, title="Top Line")
+l1=hline( 0, color=gray, title="Bottom Line")
+u=hline( ull, color=gray, title="Top Warning Line")
+l=hline( lll, color=gray, title="Bottom Warning Line")
+fill(u1,u, red, title="Top Fill")
+fill(l1,l, green, title="Bottom Fill")
+hline(50, title="MidLine")
+type=input(defval=1, title="Type (0=>Custom, 1 - 6 => Alerts levels 1 to 6)", maxval=6, minval=0)
+r21=type==0?na:rsi(src, 21)
+r14=type==0?na:rsi(src, 14)
+r5 =type==0?na:rsi(src, 5)
+r13=type==0?na:rsi(src, 13)
+smoothed=input(false, title="[Custom] Smooth CCTStochRSI?")
+lr=input(8, title="[Custom] RSI Length")
+le=input(3, title="[Custom] EMA Length")
+ls=input(9, title="[Custom] Signal Length")
+// Alert levels
+al1=type==1?(r21-lowest(r21,8))/(highest(r21,13) - lowest(r21,13))*100:na
+al2=type==2?(r21-lowest(r21,21))/(highest(r21,21) - lowest(r21,21))*100:na
+al3=type==3?(r14-lowest(r14,14))/(highest(r14,14) - lowest(r14,14))*100:na
+al4=type==4?ema((r21-lowest(r21,13))/(highest(r21,8) - (lowest(r21+.00001,13))),8) * 100:na
+al5=type==5?ema((r5-lowest(r5,5))/(highest(r5,5) - (lowest(r5,5))),3) * 100:na
+al6=type==6?ema((r13-lowest(r13,13))/(highest(r13,13) - (lowest(r13,13))),3) * 100:na
+
+
+// Custom
+r = type==0?rsi(src, lr):na
+cctstr_ = type==0?( r - lowest( r, lr )) / (( highest( r, lr )) - lowest( r, lr )):na
+cctsrc=type==0?smoothed?ema(cctstr_,le)*100 : cctstr_*100:na 
+cctsr=type==0?cctsrc:type==1?al1:type==2?al2:type==3?al3:type==4?al4:type==5?al5:type==6?al6:na
+e=ema(cctsr, ls)
+plot( cctsr , color=black, linewidth=2, title="CCT StochRSI")
+plot( e, color=red, linewidth=2, title="Signal")

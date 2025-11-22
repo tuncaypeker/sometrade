@@ -1,0 +1,38 @@
+//
+// @author LazyBear 
+// List of all my indicators: 
+// https://docs.google.com/document/d/15AGCufJZ8CIUvwFJ9W-IKns88gkWOKBCvByMEvm5MLo/edit?usp=sharing
+//
+study("Short-term Volume And Price Oscillator [LazyBear]", shorttitle="SVAPO_LB")
+length=input(8, title="SVAPO Period", minval=2, maxval=20)
+cutoff=input(1, title="Minimum %o price change", maxval=10, minval=0)
+devH=input(1.5, title="Stdev High", maxval=5, minval=0.1)
+devL=input(1.3, title="Stdev Low", maxval=5, minval=0.1)
+stdevper=input(100, title="Stdev Period", maxval=200, minval=1)
+
+calc_tema(s, length) =>
+    ema1 = ema(s, length)
+    ema2 = ema(ema1, length)
+    ema3 = ema(ema2, length)
+    3 * (ema1 - ema2) + ema3
+
+calc_linregslope(C, tp) =>
+    ((tp*(sum(cum(1)*C,tp)))-(sum(cum(1),tp)*(sum(C,tp))))/((tp*sum(pow(cum(1),2),tp))-pow(sum(cum(1),tp),2))
+
+calc_OR2(x) => 
+    y=x // To force expr evaluation
+    (y == true) or (y[1] == true)
+
+haOpen=(ohlc4[1] + nz(haOpen[1]))/2
+haCl=(ohlc4+haOpen+max(high, haOpen)+min(low, haOpen))/4
+haC=calc_tema(haCl, round(length/1.6))
+vma=sma(volume, length*5)
+vave=vma[1]
+vmax=2*vave
+vc=iff(volume<vmax, volume, vmax)
+vtr=calc_tema(calc_linregslope(volume, length), length)
+svapo=calc_tema(sum(iff(haC>(nz(haC[1])*(1+cutoff/1000)) and  calc_OR2((vtr>=nz(vtr[1]))), vc, iff(haC<(nz(haC[1])*(1-cutoff/1000)) and calc_OR2((vtr>nz(vtr[1]))),-vc,0)), length)/(vave+1),length)
+plot(devH*stdev(svapo,stdevper), color=red, style=3)
+plot(-devL*stdev(svapo,stdevper), color=green, style=3)
+plot(0, color=gray, style=3)
+plot(svapo, color=maroon, linewidth=2)

@@ -1,0 +1,13 @@
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.csproj.AssemblyReference.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.AssemblyInfoInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.AssemblyInfo.cs
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.csproj.CoreCompileInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.deps.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\netcoreapp3.1\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\netcoreapp3.1\SomeTrade.TA.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.csproj.CopyComplete
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\netcoreapp3.1\SomeTrade.TA.PriceAction.pdb

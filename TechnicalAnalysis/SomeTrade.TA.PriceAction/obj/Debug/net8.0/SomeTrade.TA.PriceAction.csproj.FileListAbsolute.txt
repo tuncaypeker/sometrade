@@ -1,0 +1,16 @@
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\net8.0\SomeTrade.TA.PriceAction.deps.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\net8.0\SomeTrade.TA.PriceAction.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\net8.0\SomeTrade.TA.PriceAction.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\net8.0\SomeTrade.TA.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\bin\Debug\net8.0\SomeTrade.TA.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrade.TA.PriceAction.csproj.AssemblyReference.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrade.TA.PriceAction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrade.TA.PriceAction.AssemblyInfoInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrade.TA.PriceAction.AssemblyInfo.cs
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrade.TA.PriceAction.csproj.CoreCompileInputs.cache
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrade.TA.PriceAction.sourcelink.json
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrad.63AC47A3.Up2Date
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrade.TA.PriceAction.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\refint\SomeTrade.TA.PriceAction.dll
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\SomeTrade.TA.PriceAction.pdb
+C:\Users\Tuncay Peker\Documents\WorkArea\SomeTrade\TechnicalAnalysis\SomeTrade.TA.PriceAction\obj\Debug\net8.0\ref\SomeTrade.TA.PriceAction.dll

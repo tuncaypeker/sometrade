@@ -1,0 +1,18 @@
+﻿// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © alexgrover
+
+//@version=4
+study("Vanilla ABCD Pattern",overlay=true)
+src = input(close),cnd = input(false,"Confirmation")
+bar = input(true,"Last Bar Repaint")
+//----
+up = src[3] > src[2] and src[1] > src[2] and src < src[2] 
+dn = src[3] < src[2] and src[1] < src[2] and src > src[2] 
+os=0,os := up ? 1 : dn ? 0 : os[1]
+f=0,f := os == 1 and close > open ? 1 : os == 0 and close < open ? 0 : f[1]
+d = cnd ? change(f) : change(os)
+//----
+plotshape(d == 1,"Up",shape.labelup,location.belowbar,
+  #2196f3,0,bar?0:1,text="↗",textcolor=color.white)
+plotshape(d == -1,"dn",shape.labeldown,location.abovebar,
+  #ff1100,0,bar?0:1,text="↘",textcolor=color.white)

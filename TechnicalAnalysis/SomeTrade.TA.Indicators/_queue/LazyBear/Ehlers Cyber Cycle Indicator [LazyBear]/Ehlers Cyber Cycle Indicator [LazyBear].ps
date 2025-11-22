@@ -1,0 +1,23 @@
+//
+// @author LazyBear 
+// 
+// List of my public indicators: http://bit.ly/1LQaPK8 
+// List of my app-store indicators: http://blog.tradingview.com/?p=970 
+//
+study("Ehlers Cyber Cycle Indicator [LazyBear]", shorttitle="ECCI_LB", overlay=false, precision=3)
+src=input(hl2, title="Source") 
+alpha=input(.07, title="Alpha")
+smooth=(src+2*src[1]+2*src[2]+src[3])/6
+cycle_=(1-.5*alpha)*(1-.5*alpha)*(smooth-2*smooth[1]+smooth[2])+2*(1-alpha)*nz(cycle_[1])-(1-alpha)*(1-alpha)*nz(cycle_[1])
+cycle=(n<7)?(src-2*src[1]+src[2])/4:cycle_
+t = cycle[1]
+plot(0, title="ZeroLine", color=gray) 
+fr=input(true, title="Fill Osc/Trigger region")
+duml=plot(fr?(cycle>t?cycle:t):na, style=circles, linewidth=0, color=gray, title="Dummy")
+cmil=plot(cycle, title="CyberCycle",color=blue)
+tl=plot(t, title="Trigger",color=green)
+fill(cmil, duml, color=red, transp=50, title="NegativeFill")
+fill(tl, duml, color=lime, transp=50, title="PositiveFill")
+ebc=input(false, title="Color bars?")
+bc=ebc?(cycle>0? (cycle>t?lime:(cycle==t?gray:green)): (cycle<t?red:orange)):na
+barcolor(bc)

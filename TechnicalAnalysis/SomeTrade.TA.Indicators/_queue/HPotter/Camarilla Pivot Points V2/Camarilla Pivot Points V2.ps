@@ -1,0 +1,40 @@
+//@version=4
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 09/05/2020
+// Camarilla pivot point formula is the refined form of existing classic pivot point formula. 
+// The Camarilla method was developed by Nick Stott who was a very successful bond trader. 
+// What makes it better is the use of Fibonacci numbers in calculation of levels.
+//
+// Camarilla equations are used to calculate intraday support and resistance levels using 
+// the previous days volatility spread. Camarilla equations take previous day’s high, low and 
+// close as input and generates 8 levels of intraday support and resistance based on pivot points. 
+// There are 4 levels above pivot point and 4 levels below pivot points. The most important levels 
+// are L3 L4 and H3 H4. H3 and L3 are the levels to go against the trend with stop loss around H4 or L4 . 
+// While L4 and H4 are considered as breakout levels when these levels are breached its time to 
+// trade with the trend.
+//
+// WARNING:
+//  - For purpose educate only
+////////////////////////////////////////////////////////////
+study(title="Camarilla Pivot Points V2", shorttitle="CPP V2", overlay = true)
+res = input(title="Resolution", type=input.resolution, defval="D")
+width = input(1, minval=1)
+xHigh  = security(syminfo.tickerid,res, high)
+xLow   = security(syminfo.tickerid,res, low)
+xClose = security(syminfo.tickerid,res, close)
+H4 = (0.55*(xHigh-xLow)) + xClose
+H3 = (0.275*(xHigh-xLow)) + xClose
+H2 = (0.183*(xHigh-xLow)) + xClose
+H1 = (0.0916*(xHigh-xLow)) + xClose
+L1 = xClose - (0.0916*(xHigh-xLow))
+L2 = xClose - (0.183*(xHigh-xLow))
+L3 = xClose - (0.275*(xHigh-xLow))
+L4 = xClose - (0.55*(xHigh-xLow))
+plot(H1[1], color=#ff0000, title="H1", style = plot.style_circles, linewidth = width)
+plot(H2[1], color=#ff002a, title="H2", style = plot.style_circles, linewidth = width)
+plot(H3[1], color=#ff014a, title="H3", style = plot.style_circles, linewidth = width)
+plot(H4[1], color=#ff014a, title="H4", style = plot.style_circles, linewidth = width)
+plot(L1[1], color=#009600, title="L1", style = plot.style_circles, linewidth = width)
+plot(L2[1], color=#006F00, title="L2", style = plot.style_circles, linewidth = width)
+plot(L3[1], color=#004900, title="L3", style = plot.style_circles, linewidth = width)
+plot(L4[1], color=#004900, title="L4", style = plot.style_circles, linewidth = width)

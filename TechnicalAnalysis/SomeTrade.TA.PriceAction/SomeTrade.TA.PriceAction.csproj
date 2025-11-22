@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="_queue\EmreKb\Quasimodo Pattern by EmreKb\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SomeTrade.TA\SomeTrade.TA.csproj" />
+  </ItemGroup>
+
+</Project>

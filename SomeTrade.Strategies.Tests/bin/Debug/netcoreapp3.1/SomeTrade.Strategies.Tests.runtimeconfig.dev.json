@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Tuncay Peker\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Tuncay Peker\\.nuget\\packages"
+    ]
+  }
+}

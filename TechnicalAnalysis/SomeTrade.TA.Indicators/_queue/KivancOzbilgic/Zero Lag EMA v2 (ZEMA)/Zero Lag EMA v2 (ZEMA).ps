@@ -1,0 +1,13 @@
+//@version=3
+// a different version of Zero Lag EMA by John EHLERS without using PREV function
+// author: KıvanÇ @fr3762 on twitter
+
+
+study(title="Zero Lag EMA v2", shorttitle="ZEMA", overlay = true)
+Period = input(title="Period", type=integer, defval=30, minval=1)
+EMA1= ema(close,Period)
+EMA2= ema(EMA1,Period)
+Difference= EMA1 - EMA2
+ZeroLagEMA= EMA1 + Difference
+
+plot(ZeroLagEMA, color=blue, linewidth=2)

@@ -1,0 +1,20 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 14/04/2014
+//  Bear Power Indicator
+//  To get more information please see "Bull And Bear Balance Indicator" 
+//  by Vadim Gimelfarb. 
+////////////////////////////////////////////////////////////
+
+study(title = "Bear Power Indicator")
+value = iff (close < open , //then 
+            iff (close[1] > open ,  max(close - open, high - low), high - low), // else
+            iff (close > open, //then
+                iff(close[1] > open, max(close[1] - low, high - close), max(open - low, high - close)), //else
+                iff(high - close > close - low, //then
+                    iff (close[1] > open, max(close[1] - open, high - low), high - low), //else
+                    iff (high - close < close - low, //then
+                        iff(close > open, max(close - low, high - close),open - low), //else
+                        iff (close > open, max(close[1] - open, high - close),//else
+                            iff(close[1] < open, max(open - low, high - close), high - low))))))
+
+plot(value, style=line, linewidth=2, color=red)

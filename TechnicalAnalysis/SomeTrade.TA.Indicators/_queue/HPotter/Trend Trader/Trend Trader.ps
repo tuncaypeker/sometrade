@@ -1,0 +1,16 @@
+////////////////////////////////////////////////////////////
+//  Copyright by HPotter v1.0 21/08/2014
+// This is plots the indicator developed by Andrew Abraham 
+// in the Trading the Trend article of TASC September 1998  
+////////////////////////////////////////////////////////////
+study(title="Trend Trader", overlay = true)
+Length = input(21, minval=1),
+Multiplier = input(3, minval=1)
+avgTR      = wma(atr(1), Length)
+highestC   = highest(Length)
+lowestC    = lowest(Length)
+hiLimit = highestC[1]-(avgTR[1] * Multiplier)
+loLimit = lowestC[1]+(avgTR[1] * Multiplier)
+ret = iff(close > hiLimit and close > loLimit, hiLimit,
+        iff(close < loLimit and close < hiLimit, loLimit, nz(ret[1], 0)))
+plot(ret, color= blue , title="Trend Trader")

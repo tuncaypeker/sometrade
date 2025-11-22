@@ -1,0 +1,33 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © EnginErdebil
+
+//@version=4
+study(title="EE-RSI-Strategy", shorttitle="EE-RSI-Strategy", format=format.price, precision=2, resolution="")
+
+src = input(close, "Source", type = input.source)
+len1 = input(22, minval=1, title="RSI Length")
+len2 = input(66, minval=1, title="RSI-EMA Length")
+up = rma(max(change(src), 0), len1)
+down = rma(-min(change(src), 0), len1)
+rsi = down == 0 ? 100 : up == 0 ? 0 : 100 - (100 / (1 + up / down))
+
+rsiema = ema(rsi, len2)
+
+band1 = hline(70, "Upper Band", color=#000000)
+band0 = hline(30, "Lower Band", color=#000000)
+fill(band1, band0, color=#C0C0C0, transp=75, title="Background")
+
+Prsi = plot(rsi, "RSI-22", color=#00E676)
+Prsiema = plot(rsiema, "RSI-66", color=#FF5252)
+
+fill(Prsi, Prsiema, color=rsi > rsiema ? color.green : color.red, transp=85, editable=true)
+
+/*
+
+** Zaman aralığı seçebiliyorsun
+** 1 saatlikte kullanıyor
+** Ani düşüş ve hızlı yükselişlerde kar almak için kullanıyor
+** RSI 30 altına düşerse, ana bütçenin %30 unu 5 e böldükten sonra, 1er 1er RSI düştükçe alıyor 
+
+
+*/
